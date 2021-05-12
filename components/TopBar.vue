@@ -62,7 +62,7 @@
             >
               <div class="w-8 h-8 image-fit">
                 <img
-                  alt="Midone Tailwind HTML Admin Template"
+                  alt="Admin Dashboard Quản Lý Cầu Đường - TNV"
                   class="rounded-full"
                   :src="require(`@/assets/images/${faker.photos[0]}`)"
                 />
@@ -84,7 +84,7 @@
           >
             <div class="w-8 h-8 image-fit">
               <img
-                alt="Midone Tailwind HTML Admin Template"
+                alt="Admin Dashboard Quản Lý Cầu Đường - TNV"
                 class="rounded-full"
                 :src="require(`@/assets/images/${faker.images[0]}`)"
               />
@@ -118,7 +118,7 @@
           >
             <div class="w-12 h-12 flex-none image-fit mr-1">
               <img
-                alt="Midone Tailwind HTML Admin Template"
+                alt="Admin Dashboard Quản Lý Cầu Đường - TNV"
                 class="rounded-full"
                 :src="require(`@/assets/images/${faker.photos[0]}`)"
               />
@@ -150,7 +150,7 @@
         class="dropdown-toggle w-8 h-8 rounded-full overflow-hidden shadow-lg image-fit zoom-in"
       >
         <img
-          alt="Midone Tailwind HTML Admin Template"
+          alt="Admin Dashboard Quản Lý Cầu Đường - TNV"
           :src="require(`@/assets/images/${$f()[9].photos[0]}`)"
         />
       </div>
@@ -169,25 +169,29 @@
               href
               class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md"
             >
-              <UserIcon class="w-4 h-4 mr-2" /> Profile
+              <UserIcon class="w-4 h-4 mr-2" />
+              Profile
             </a>
             <a
               href
               class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md"
             >
-              <EditIcon class="w-4 h-4 mr-2" /> Add Account
+              <EditIcon class="w-4 h-4 mr-2" />
+              Add Account
             </a>
             <a
               href
               class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md"
             >
-              <LockIcon class="w-4 h-4 mr-2" /> Reset Password
+              <LockIcon class="w-4 h-4 mr-2" />
+              Reset Password
             </a>
             <a
               href
               class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md"
             >
-              <HelpCircleIcon class="w-4 h-4 mr-2" /> Help
+              <HelpCircleIcon class="w-4 h-4 mr-2" />
+              Help
             </a>
           </div>
           <div class="p-2 border-t border-theme-40 dark:border-dark-3">

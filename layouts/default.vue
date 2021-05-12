@@ -12,12 +12,12 @@
           class="intro-x flex items-center pl-5 pt-4"
         >
           <img
-            alt="Midone Tailwind HTML Admin Template"
+            alt="Admin Dashboard Quản Lý Cầu Đường - TNV"
             class="w-6"
             src="@/assets/images/logo.svg"
           />
           <span class="hidden xl:block text-white text-lg ml-3">
-            Mid<span class="font-medium">one</span>
+            QL <span class="font-medium">Cầu Đường</span>
           </span>
         </nuxt-link>
         <!-- END: Logo -->

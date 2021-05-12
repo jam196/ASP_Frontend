@@ -1,9 +1,12 @@
 const webpack = require("webpack");
 const path = require("path");
-const CKEditorWebpackPlugin = require("@ckeditor/ckeditor5-dev-webpack-plugin");
 const { styles } = require("@ckeditor/ckeditor5-dev-utils");
 
 export default {
+  router: {
+    middleware: ["auth"]
+  },
+
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
@@ -40,7 +43,29 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ["@nuxtjs/axios", "@nuxtjs/auth-next"],
+  auth: {
+    redirect: {
+      login: "/login",
+      logout: "/login",
+      callback: "/login",
+      home: "/"
+    },
+    strategies: {
+      laravelJWT: {
+        provider: "laravel/jwt",
+        url: "https://localhost:5001",
+        endpoints: {},
+        token: {
+          property: "token",
+          maxAge: 60 * 60
+        },
+        refreshToken: {
+          maxAge: 20160 * 60
+        }
+      }
+    }
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

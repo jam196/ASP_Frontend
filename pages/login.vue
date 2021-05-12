@@ -7,7 +7,7 @@
         <div class="hidden xl:flex flex-col min-h-screen">
           <a href="" class="-intro-x flex items-center pt-5">
             <img
-              alt="Midone Tailwind HTML Admin Template"
+              alt="Admin Dashboard Quản Lý Cầu Đường - TNV"
               class="w-6"
               :src="require(`@/assets/images/logo.svg`)"
             />
@@ -17,7 +17,7 @@
           </a>
           <div class="my-auto">
             <img
-              alt="Midone Tailwind HTML Admin Template"
+              alt="Admin Dashboard Quản Lý Cầu Đường - TNV"
               class="-intro-x w-1/2 -mt-16"
               :src="require(`@/assets/images/illustration.svg`)"
             />
@@ -49,34 +49,38 @@
             </div>
             <div class="intro-x mt-8">
               <input
+                v-model="form.username"
                 type="text"
                 class="intro-x login__input input input--lg border border-gray-300 block"
-                placeholder="Email"
+                placeholder="Tên đăng nhập"
               />
               <input
+                v-model="form.password"
                 type="password"
                 class="intro-x login__input input input--lg border border-gray-300 block mt-4"
-                placeholder="Password"
+                placeholder="Mật khẩu"
+                @keyup.enter="login"
               />
             </div>
             <div
               class="intro-x flex text-gray-700 dark:text-gray-600 text-xs sm:text-sm mt-4"
             >
-              <div class="flex items-center mr-auto">
-                <input
-                  id="remember-me"
-                  type="checkbox"
-                  class="input border mr-2"
-                />
-                <label class="cursor-pointer select-none" for="remember-me"
-                  >Lưu đăng nhập</label
-                >
-              </div>
+              <!--              <div class="flex items-center mr-auto">-->
+              <!--                <input-->
+              <!--                  id="remember-me"-->
+              <!--                  type="checkbox"-->
+              <!--                  class="input border mr-2"-->
+              <!--                />-->
+              <!--                <label class="cursor-pointer select-none" for="remember-me"-->
+              <!--                  >Lưu đăng nhập</label-->
+              <!--                >-->
+              <!--              </div>-->
               <!--              <a href="">Forgot Password?</a>-->
             </div>
-            <div class="intro-x mt-5 xl:mt-8 text-center xl:text-left">
+            <div class="intro-x mt-3 xl:mt-3 text-center xl:text-left">
               <button
                 class="button button--lg w-full xl:w-32 text-white bg-theme-1 xl:mr-3 align-top"
+                @click="login"
               >
                 Đăng nhập
               </button>
@@ -114,10 +118,32 @@ export default {
   components: {
     DarkModeSwitcher
   },
+  data() {
+    return {
+      form: {
+        username: null,
+        password: null
+      }
+    };
+  },
   mounted() {
     cash("body")
       .removeClass("app")
       .addClass("login");
+  },
+  methods: {
+    login() {
+      this.$auth
+        .loginWith("laravelJWT", {
+          data: {
+            username: this.form.username,
+            password: this.form.password
+          }
+        })
+        .catch(e => {
+          alert(e.response.data.message);
+        });
+    }
   }
 };
 </script>

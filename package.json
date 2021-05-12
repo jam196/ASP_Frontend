@@ -26,6 +26,8 @@
     "@ckeditor/ckeditor5-theme-lark": "^21.0.0",
     "@ckeditor/ckeditor5-vue": "^1.0.1",
     "@google/markerclusterer": "^2.0.8",
+    "@nuxtjs/auth-next": "5.0.0-1620773067.c356fed",
+    "@nuxtjs/axios": "^5.13.1",
     "@popperjs/core": "^2.4.4",
     "autoprefixer": "^10.2.5",
     "cash-dom": "^8.0.0",

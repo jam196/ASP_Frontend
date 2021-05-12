@@ -4,9 +4,18 @@
       <!-- BEGIN: General Report -->
       <div class="col-span-12 mt-8">
         <div class="intro-y flex items-center h-10">
-          <h2 class="text-lg font-medium truncate mr-5">General Report</h2>
+          <h2 class="text-lg font-medium truncate mr-5">
+            Xin chào {{ this.$auth.user.username }}
+          </h2>
+          <button
+            class="text-white p-3 rounded bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50 ..."
+            @click="logout"
+          >
+            Logout
+          </button>
           <a href="" class="ml-auto flex text-theme-1 dark:text-theme-10">
-            <RefreshCcwIcon class="w-4 h-4 mr-3" /> Reload Data
+            <RefreshCcwIcon class="w-4 h-4 mr-3" />
+            Reload Data
           </a>
         </div>
         <div class="grid grid-cols-12 gap-6 mt-5">
@@ -21,7 +30,8 @@
                       class="report-box__indicator bg-theme-9 cursor-pointer"
                       content="33% Higher than last month"
                     >
-                      33% <ChevronUpIcon class="w-4 h-4" />
+                      33%
+                      <ChevronUpIcon class="w-4 h-4" />
                     </Tippy>
                   </div>
                 </div>
@@ -41,7 +51,8 @@
                       class="report-box__indicator bg-theme-6 cursor-pointer"
                       content="2% Lower than last month"
                     >
-                      2% <ChevronDownIcon class="w-4 h-4" />
+                      2%
+                      <ChevronDownIcon class="w-4 h-4" />
                     </Tippy>
                   </div>
                 </div>
@@ -61,7 +72,8 @@
                       class="report-box__indicator bg-theme-9 cursor-pointer"
                       content="12% Higher than last month"
                     >
-                      12% <ChevronUpIcon class="w-4 h-4" />
+                      12%
+                      <ChevronUpIcon class="w-4 h-4" />
                     </Tippy>
                   </div>
                 </div>
@@ -81,7 +93,8 @@
                       class="report-box__indicator bg-theme-9 cursor-pointer"
                       content="22% Higher than last month"
                     >
-                      22% <ChevronUpIcon class="w-4 h-4" />
+                      22%
+                      <ChevronUpIcon class="w-4 h-4" />
                     </Tippy>
                   </div>
                 </div>
@@ -313,7 +326,7 @@
                 class="w-10 h-10 flex-none image-fit rounded-md overflow-hidden"
               >
                 <img
-                  alt="Midone Tailwind HTML Admin Template"
+                  alt="Admin Dashboard Quản Lý Cầu Đường - TNV"
                   :src="require(`@/assets/images/${faker.photos[0]}`)"
                 />
               </div>
@@ -449,7 +462,7 @@
                     <div class="w-10 h-10 image-fit zoom-in">
                       <Tippy
                         tag="img"
-                        alt="Midone Tailwind HTML Admin Template"
+                        alt="Admin Dashboard Quản Lý Cầu Đường - TNV"
                         class="rounded-full"
                         :src="require(`@/assets/images/${faker.images[0]}`)"
                         :content="`Uploaded at ${faker.dates[0]}`"
@@ -458,7 +471,7 @@
                     <div class="w-10 h-10 image-fit zoom-in -ml-5">
                       <Tippy
                         tag="img"
-                        alt="Midone Tailwind HTML Admin Template"
+                        alt="Admin Dashboard Quản Lý Cầu Đường - TNV"
                         class="rounded-full"
                         :src="require(`@/assets/images/${faker.images[1]}`)"
                         :content="`Uploaded at ${faker.dates[1]}`"
@@ -467,7 +480,7 @@
                     <div class="w-10 h-10 image-fit zoom-in -ml-5">
                       <Tippy
                         tag="img"
-                        alt="Midone Tailwind HTML Admin Template"
+                        alt="Admin Dashboard Quản Lý Cầu Đường - TNV"
                         class="rounded-full"
                         :src="require(`@/assets/images/${faker.images[2]}`)"
                         :content="`Uploaded at ${faker.dates[2]}`"
@@ -503,7 +516,8 @@
                       Edit
                     </a>
                     <a class="flex items-center text-theme-6" href="">
-                      <Trash2Icon class="w-4 h-4 mr-1" /> Delete
+                      <Trash2Icon class="w-4 h-4 mr-1" />
+                      Delete
                     </a>
                   </div>
                 </td>
@@ -583,7 +597,7 @@
                   class="w-10 h-10 flex-none image-fit rounded-full overflow-hidden"
                 >
                   <img
-                    alt="Midone Tailwind HTML Admin Template"
+                    alt="Admin Dashboard Quản Lý Cầu Đường - TNV"
                     :src="require(`@/assets/images/${faker.photos[0]}`)"
                   />
                 </div>
@@ -630,7 +644,7 @@
                   class="w-10 h-10 flex-none image-fit rounded-full overflow-hidden"
                 >
                   <img
-                    alt="Midone Tailwind HTML Admin Template"
+                    alt="Admin Dashboard Quản Lý Cầu Đường - TNV"
                     :src="require(`@/assets/images/${$f()[9].photos[0]}`)"
                   />
                 </div>
@@ -651,7 +665,7 @@
                   class="w-10 h-10 flex-none image-fit rounded-full overflow-hidden"
                 >
                   <img
-                    alt="Midone Tailwind HTML Admin Template"
+                    alt="Admin Dashboard Quản Lý Cầu Đường - TNV"
                     :src="require(`@/assets/images/${$f()[8].photos[0]}`)"
                   />
                 </div>
@@ -672,7 +686,7 @@
                       :content="$f()[0].products[0].name"
                     >
                       <img
-                        alt="Midone Tailwind HTML Admin Template"
+                        alt="Admin Dashboard Quản Lý Cầu Đường - TNV"
                         class="rounded-md border border-white"
                         :src="require(`@/assets/images/${$f()[8].images[0]}`)"
                       />
@@ -683,7 +697,7 @@
                       :content="$f()[1].products[0].name"
                     >
                       <img
-                        alt="Midone Tailwind HTML Admin Template"
+                        alt="Admin Dashboard Quản Lý Cầu Đường - TNV"
                         class="rounded-md border border-white"
                         :src="require(`@/assets/images/${$f()[8].images[1]}`)"
                       />
@@ -694,7 +708,7 @@
                       :content="$f()[2].products[0].name"
                     >
                       <img
-                        alt="Midone Tailwind HTML Admin Template"
+                        alt="Admin Dashboard Quản Lý Cầu Đường - TNV"
                         class="rounded-md border border-white"
                         :src="require(`@/assets/images/${$f()[8].images[2]}`)"
                       />
@@ -712,7 +726,7 @@
                   class="w-10 h-10 flex-none image-fit rounded-full overflow-hidden"
                 >
                   <img
-                    alt="Midone Tailwind HTML Admin Template"
+                    alt="Admin Dashboard Quản Lý Cầu Đường - TNV"
                     :src="require(`@/assets/images/${$f()[7].photos[0]}`)"
                   />
                 </div>
@@ -739,7 +753,7 @@
                   class="w-10 h-10 flex-none image-fit rounded-full overflow-hidden"
                 >
                   <img
-                    alt="Midone Tailwind HTML Admin Template"
+                    alt="Admin Dashboard Quản Lý Cầu Đường - TNV"
                     :src="require(`@/assets/images/${$f()[6].photos[0]}`)"
                   />
                 </div>
@@ -881,7 +895,8 @@
               href=""
               class="ml-auto text-theme-1 dark:text-theme-10 truncate flex items-center"
             >
-              <PlusIcon class="w-4 h-4 mr-1" /> Add New Schedules
+              <PlusIcon class="w-4 h-4 mr-1" />
+              Add New Schedules
             </a>
           </div>
           <div class="mt-5">
@@ -1027,6 +1042,12 @@ export default {
     },
     nextImportantNotes() {
       this.$refs["important-notes"].next();
+    },
+    logout() {
+      console.log("Clicked");
+      // this.$auth.setUser({});
+      // this.$router.push({ path: "login" });
+      this.$auth.logout();
     }
   }
 };
