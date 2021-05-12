@@ -12,7 +12,7 @@
               :src="require(`@/assets/images/logo.svg`)"
             />
             <span class="text-white text-lg ml-3">
-              Mid<span class="font-medium">One</span>
+              Quản Lý <span class="font-medium">Cầu Đường</span>
             </span>
           </a>
           <div class="my-auto">
@@ -24,11 +24,11 @@
             <div
               class="-intro-x text-white font-medium text-4xl leading-tight mt-10"
             >
-              A few more clicks to <br />
-              sign in to your account.
+              Đăng nhập vào hệ thống.
             </div>
             <div class="-intro-x mt-5 text-lg text-white dark:text-gray-500">
-              Manage all your e-commerce accounts in one place
+              Nếu bạn chưa có tài khoản, hệ thống sẽ tự động tạo tài khoản mới
+              cho bạn
             </div>
           </div>
         </div>
@@ -41,7 +41,7 @@
             <h2
               class="intro-x font-bold text-2xl xl:text-3xl text-center xl:text-left"
             >
-              Sign In
+              Đăng nhập
             </h2>
             <div class="intro-x mt-2 text-gray-500 xl:hidden text-center">
               A few more clicks to sign in to your account. Manage all your
@@ -69,35 +69,35 @@
                   class="input border mr-2"
                 />
                 <label class="cursor-pointer select-none" for="remember-me"
-                  >Remember me</label
+                  >Lưu đăng nhập</label
                 >
               </div>
-              <a href="">Forgot Password?</a>
+              <!--              <a href="">Forgot Password?</a>-->
             </div>
             <div class="intro-x mt-5 xl:mt-8 text-center xl:text-left">
               <button
                 class="button button--lg w-full xl:w-32 text-white bg-theme-1 xl:mr-3 align-top"
               >
-                Login
+                Đăng nhập
               </button>
-              <button
-                class="button button--lg w-full xl:w-32 text-gray-700 border border-gray-300 dark:border-dark-5 dark:text-gray-300 mt-3 xl:mt-0 align-top"
-              >
-                Sign up
-              </button>
+              <!--              <button-->
+              <!--                class="button button&#45;&#45;lg w-full xl:w-32 text-gray-700 border border-gray-300 dark:border-dark-5 dark:text-gray-300 mt-3 xl:mt-0 align-top"-->
+              <!--              >-->
+              <!--                Sign up-->
+              <!--              </button>-->
             </div>
-            <div
-              class="intro-x mt-10 xl:mt-24 text-gray-700 dark:text-gray-600 text-center xl:text-left"
-            >
-              By signin up, you agree to our <br />
-              <a class="text-theme-1 dark:text-theme-10" href=""
-                >Terms and Conditions</a
-              >
-              &
-              <a class="text-theme-1 dark:text-theme-10" href=""
-                >Privacy Policy</a
-              >
-            </div>
+            <!--            <div-->
+            <!--              class="intro-x mt-10 xl:mt-24 text-gray-700 dark:text-gray-600 text-center xl:text-left"-->
+            <!--            >-->
+            <!--              By signin up, you agree to our <br />-->
+            <!--              <a class="text-theme-1 dark:text-theme-10" href=""-->
+            <!--                >Terms and Conditions</a-->
+            <!--              >-->
+            <!--              &-->
+            <!--              <a class="text-theme-1 dark:text-theme-10" href=""-->
+            <!--                >Privacy Policy</a-->
+            <!--              >-->
+            <!--            </div>-->
           </div>
         </div>
         <!-- END: Login Form -->
