@@ -26,7 +26,7 @@
           <!-- BEGIN: First Child -->
           <template v-for="(menu, menuKey) in formattedMenu">
             <li
-              v-if="menu == 'devider'"
+              v-if="menu === 'devider'"
               :key="menuKey"
               class="side-nav__devider my-6"
             ></li>
@@ -164,6 +164,7 @@ export default {
     }
   },
   mounted() {
+    console.log(this.$route.name);
     cash("body")
       .removeClass("login")
       .addClass("app");
@@ -172,9 +173,10 @@ export default {
   methods: {
     nestedMenu(menu) {
       menu.forEach((item, key) => {
+        console.log(item.pageName);
         if (typeof item !== "string") {
           menu[key].active =
-            (item.pageName == this.$route.name ||
+            (item.pageName === this.$route.name ||
               (this.$h.isset(item.subMenu) &&
                 this.findActiveMenu(item.subMenu))) &&
             !item.ignore;
