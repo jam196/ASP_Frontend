@@ -3,6 +3,10 @@ const path = require("path");
 const { styles } = require("@ckeditor/ckeditor5-dev-utils");
 
 export default {
+  env: {
+    baseUrl: process.env.BASE_URL || "https://localhost:5001"
+  },
+
   router: {
     middleware: ["auth"]
   },
@@ -15,7 +19,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "Account",
+    title: "Quản lý cầu đường",
     htmlAttrs: {
       lang: "en"
     },
@@ -65,6 +69,10 @@ export default {
         }
       }
     }
+  },
+
+  axios: {
+    baseURL: "https://localhost:5001/api"
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

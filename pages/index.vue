@@ -8,10 +8,10 @@
             Xin chào {{ this.$auth.user.username }}
           </h2>
           <button
-            class="text-white p-3 rounded bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50 ..."
+            class="text-white p-3 rounded bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50"
             @click="logout"
           >
-            Logout
+            Đăng xuất
           </button>
           <a href="" class="ml-auto flex text-theme-1 dark:text-theme-10">
             <RefreshCcwIcon class="w-4 h-4 mr-3" />

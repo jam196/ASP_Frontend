@@ -12,6 +12,7 @@ import "@/assets/sass/app.scss";
 // Vue.config.productionTip = false;
 
 import "tippy.js/themes/light.css";
+import "../libs/dropdown";
 
 import VueTippy, { TippyComponent } from "vue-tippy";
 

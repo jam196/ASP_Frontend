@@ -1,34 +1,20 @@
-<template>
-  <PieChart :width="width" :height="height" :chart-data="data" />
-</template>
-
 <script>
+import { Pie, mixins } from "vue-chartjs";
+const { reactiveProp } = mixins;
+
 export default {
+  extends: Pie,
+  mixins: [reactiveProp],
   props: {
-    width: {
-      type: Number,
-      default: 0
-    },
-    height: {
-      type: Number,
-      default: 0
+    options: {
+      type: Object,
+      default() {
+        return {};
+      }
     }
   },
-  computed: {
-    data() {
-      return {
-        labels: ["Html", "Vuejs", "Laravel"],
-        datasets: [
-          {
-            data: [15, 10, 65],
-            backgroundColor: ["#FF8B26", "#FFC533", "#285FD3"],
-            hoverBackgroundColor: ["#FF8B26", "#FFC533", "#285FD3"],
-            borderWidth: 5,
-            borderColor: this.$store.state.main.darkMode ? "#303953" : "#fff"
-          }
-        ]
-      };
-    }
+  mounted() {
+    this.renderChart(this.chartData, this.options);
   }
 };
 </script>

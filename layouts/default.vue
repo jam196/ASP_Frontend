@@ -164,7 +164,6 @@ export default {
     }
   },
   mounted() {
-    console.log(this.$route.name);
     cash("body")
       .removeClass("login")
       .addClass("app");
@@ -173,7 +172,6 @@ export default {
   methods: {
     nestedMenu(menu) {
       menu.forEach((item, key) => {
-        console.log(item.pageName);
         if (typeof item !== "string") {
           menu[key].active =
             (item.pageName === this.$route.name ||

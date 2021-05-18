@@ -1,5 +1,5 @@
 <script>
-import GoogleMapLoader from "@/global-components/GoogleMapLoader";
+import GoogleMapLoader from "@/components/GoogleMapLoader";
 import MarkerClusterer from "@google/markerclusterer";
 
 export default {

@@ -7,6 +7,11 @@ const state = () => {
         title: "Dashboard"
       },
       {
+        icon: "EditIcon",
+        pageName: "bridge",
+        title: "Quản lý cầu"
+      },
+      {
         icon: "BoxIcon",
         pageName: "side-menu-menu-layout",
         title: "Menu Layout",

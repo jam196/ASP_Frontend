@@ -1,5 +1,5 @@
 <template>
-  <input v-picker="{ value }" type="text" :value="value" />
+  <input v-picker="{ value }" :class="classes" type="text" :value="value" />
 </template>
 
 <script>
@@ -28,6 +28,10 @@ export default {
       }
     },
     value: {
+      type: String,
+      default: ""
+    },
+    classes: {
       type: String,
       default: ""
     }
@@ -69,7 +73,12 @@ export default {
           date +=
             endDate !== undefined ? " - " + dayjs(endDate).format(format) : "";
           vnode.context.$emit("input", date);
-        }
+        },
+        buttonText: {
+          apply: "Chọn",
+          cancel: "Thoát"
+        },
+        lang: "vi"
       });
     },
     reInit(el, binding, vnode) {
