@@ -131,6 +131,31 @@
       </div>
       <!-- END: Content -->
     </div>
+    <div id="warning-modal" class="modal">
+      <div class="modal__content">
+        <div class="p-5 text-center">
+          <xCircleIcon class="w-16 h-16 text-theme-12 mx-auto mt-3" />
+          <div class="text-3xl mt-5">Có lỗi xảy ra...</div>
+          <div class="text-gray-600 mt-2">Something went wrong!</div>
+        </div>
+        <div class="px-5 pb-8 text-center">
+          <button
+            type="button"
+            data-dismiss="modal"
+            class="button w-24 bg-theme-1 text-white"
+          >
+            Ok
+          </button>
+        </div>
+        <div
+          class="p-5 text-center border-t border-gray-200 dark:border-dark-5"
+        >
+          <a href="" class="text-theme-1 dark:text-theme-10"
+            >Why do I have this issue?</a
+          >
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 

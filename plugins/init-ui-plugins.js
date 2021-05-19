@@ -13,6 +13,7 @@ import "@/assets/sass/app.scss";
 
 import "tippy.js/themes/light.css";
 import "../libs/dropdown";
+import "../libs/modal";
 
 import VueTippy, { TippyComponent } from "vue-tippy";
 

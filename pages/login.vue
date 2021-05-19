@@ -107,6 +107,23 @@
         <!-- END: Login Form -->
       </div>
     </div>
+    <div id="warning-modal" class="modal">
+      <div class="modal__content">
+        <div class="p-5 text-center">
+          <xCircleIcon class="w-16 h-16 text-theme-6 mx-auto mt-3" />
+          <div class="text-xl mt-5">{{ errorMessage }}</div>
+        </div>
+        <div class="px-5 pb-8 text-center">
+          <button
+            type="button"
+            data-dismiss="modal"
+            class="button w-24 bg-theme-1 text-white"
+          >
+            Ok
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -120,6 +137,7 @@ export default {
   },
   data() {
     return {
+      errorMessage: null,
       form: {
         username: null,
         password: null
@@ -141,7 +159,8 @@ export default {
           }
         })
         .catch(e => {
-          alert(e.response.data.message);
+          this.errorMessage = e.response.data.message || "Lỗi không xác định";
+          cash("#warning-modal").modal("show");
         });
     }
   }
