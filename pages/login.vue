@@ -159,7 +159,11 @@ export default {
           }
         })
         .catch(e => {
-          this.errorMessage = e.response.data.message || "Lỗi không xác định";
+          console.log(e);
+          this.errorMessage =
+            e.response && e.response.data.message
+              ? e.response.data.message
+              : "Lỗi không xác định. Mã lỗi: " + (e.status || 500);
           cash("#warning-modal").modal("show");
         });
     }

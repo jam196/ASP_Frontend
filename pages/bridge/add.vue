@@ -47,7 +47,7 @@
               <div>Tổng đầu tư</div>
               <input
                 v-model="formData.totalInvestment"
-                type="text"
+                type="number"
                 class="input w-full border mt-2"
               />
             </div>
@@ -170,7 +170,7 @@
               </nuxt-link>
               <button
                 class="button w-24 justify-center block bg-theme-1 text-white ml-2"
-                @click="save"
+                @click="submitForm"
               >
                 Lưu dữ liệu
               </button>
@@ -195,10 +195,12 @@ import Toastify from "toastify-js";
 
 export default {
   components: { LitePicker, TailSelect },
+  props: ["test"],
   data() {
     return {
       date: "",
       formData: {
+        id: false,
         name: "Tên cầu",
         startTime: "",
         endTime: "",
@@ -223,22 +225,71 @@ export default {
     };
   },
   mounted() {
-    // cash("#warning-modal").modal("show");
+    if (this.$route.params.formData) {
+      this.formData = this.$route.params.formData;
+    }
   },
   methods: {
-    save() {
-      this.$axios.post("/bridge", this.formData).then(response => {
-        Toastify({
-          text: response.data.message,
-          duration: 3000,
-          newWindow: true,
-          close: true,
-          gravity: "top",
-          position: "center",
-          backgroundColor: "#42ba96",
-          stopOnFocus: true
-        }).showToast();
-      });
+    submitForm() {
+      if (!this.formData.id) {
+        let fakeFormData = { ...this.formData };
+        delete fakeFormData.id;
+        this.$axios
+          .post("/bridge", fakeFormData)
+          .then(response => {
+            Toastify({
+              text: response.data.message,
+              duration: 2000,
+              newWindow: true,
+              close: true,
+              gravity: "top",
+              position: "center",
+              backgroundColor: "#42ba96",
+              stopOnFocus: true
+            }).showToast();
+          })
+          .catch(e => {
+            let responseData = e.response.data;
+            Toastify({
+              text: responseData[Object.keys(responseData)[0]],
+              duration: 3500,
+              newWindow: true,
+              close: true,
+              gravity: "top",
+              position: "center",
+              backgroundColor: "#ffc107",
+              stopOnFocus: true
+            }).showToast();
+          });
+      } else {
+        this.$axios
+          .put("/bridge/" + this.formData.id, this.formData)
+          .then(response => {
+            Toastify({
+              text: response.data.message,
+              duration: 2000,
+              newWindow: true,
+              close: true,
+              gravity: "top",
+              position: "center",
+              backgroundColor: "#42ba96",
+              stopOnFocus: true
+            }).showToast();
+          })
+          .catch(e => {
+            let responseData = e.response.data;
+            Toastify({
+              text: responseData[Object.keys(responseData)[0]],
+              duration: 3500,
+              newWindow: true,
+              close: true,
+              gravity: "top",
+              position: "center",
+              backgroundColor: "#ffc107",
+              stopOnFocus: true
+            }).showToast();
+          });
+      }
     }
   }
 };

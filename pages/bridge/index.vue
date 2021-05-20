@@ -40,61 +40,61 @@
     <div class="intro-y box p-5 mt-5">
       <div class="flex flex-col sm:flex-row sm:items-end xl:items-start">
         <form class="xl:flex sm:mr-auto" @submit.prevent="onFilter">
-          <div class="sm:flex items-center sm:mr-4">
-            <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2"
-              >Field</label
-            >
-            <select
-              v-model="filter.field"
-              class="input w-full sm:w-32 xxl:w-full mt-2 sm:mt-0 sm:w-auto border"
-            >
-              <option value="name">Name</option>
-              <option value="category">Category</option>
-              <option value="remaining_stock">Remaining Stock</option>
-            </select>
-          </div>
+          <!--          <div class="sm:flex items-center sm:mr-4">-->
+          <!--            <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2"-->
+          <!--              >Field</label-->
+          <!--            >-->
+          <!--            <select-->
+          <!--              v-model="filter.field"-->
+          <!--              class="input w-full sm:w-32 xxl:w-full mt-2 sm:mt-0 sm:w-auto border"-->
+          <!--            >-->
+          <!--              <option value="name">Name</option>-->
+          <!--              <option value="category">Category</option>-->
+          <!--              <option value="remaining_stock">Remaining Stock</option>-->
+          <!--            </select>-->
+          <!--          </div>-->
+          <!--          <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">-->
+          <!--            <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2"-->
+          <!--              >Type</label-->
+          <!--            >-->
+          <!--            <select-->
+          <!--              v-model="filter.type"-->
+          <!--              class="input w-full mt-2 sm:mt-0 sm:w-auto border"-->
+          <!--            >-->
+          <!--              <option value="like" selected>like</option>-->
+          <!--              <option value="=">=</option>-->
+          <!--              <option value="<">&lt;</option>-->
+          <!--              <option value="<=">&lt;=</option>-->
+          <!--              <option value=">">></option>-->
+          <!--              <option value=">=">>=</option>-->
+          <!--              <option value="!=">!=</option>-->
+          <!--            </select>-->
+          <!--          </div>-->
           <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
-            <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2"
-              >Type</label
-            >
-            <select
-              v-model="filter.type"
-              class="input w-full mt-2 sm:mt-0 sm:w-auto border"
-            >
-              <option value="like" selected>like</option>
-              <option value="=">=</option>
-              <option value="<">&lt;</option>
-              <option value="<=">&lt;=</option>
-              <option value=">">></option>
-              <option value=">=">>=</option>
-              <option value="!=">!=</option>
-            </select>
-          </div>
-          <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
-            <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2"
-              >Value</label
-            >
+            <!--            <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2"-->
+            <!--              >Value</label-->
+            <!--            >-->
             <input
               v-model="filter.value"
               type="text"
               class="input w-full sm:w-40 xxl:w-full mt-2 sm:mt-0 border"
-              placeholder="Search..."
+              placeholder="Nhập từ muốn tìm..."
             />
           </div>
           <div class="mt-2 xl:mt-0">
             <button
               type="button"
-              class="button w-full sm:w-16 bg-theme-1 text-white"
+              class="button w-full sm:w-32 bg-theme-1 text-white"
               @click="onFilter"
             >
-              Go
+              Tìm kiếm
             </button>
             <button
               type="button"
-              class="button w-full sm:w-16 mt-2 sm:mt-0 sm:ml-1 bg-gray-200 text-gray-600 dark:bg-dark-5 dark:text-gray-300"
+              class="button w-full sm:w-32 mt-2 sm:mt-0 sm:ml-1 bg-gray-200 text-gray-600 dark:bg-dark-5 dark:text-gray-300"
               @click="onResetFilter"
             >
-              Reset
+              Reload dữ liệu
             </button>
           </div>
         </form>
@@ -179,7 +179,12 @@
             >
               Thế để từ từ
             </button>
-            <button type="button" class="button w-24 bg-theme-6 text-white">
+            <button
+              data-dismiss="modal"
+              type="button"
+              class="button w-24 bg-theme-6 text-white"
+              @click="deleteData"
+            >
               Chắc chắn!
             </button>
           </div>
@@ -205,7 +210,8 @@ export default {
         type: "like",
         value: ""
       },
-      dataToUpdate: {}
+      dataToUpdate: {},
+      selectedRow: null
     };
   },
   mounted() {
@@ -243,8 +249,8 @@ export default {
           responsive: 0,
           field: "name",
           vertAlign: "middle",
-          print: false,
-          download: false,
+          print: true,
+          download: true,
           formatter(cell) {
             return `<div>
               <div class="font-medium whitespace-no-wrap">${
@@ -255,66 +261,71 @@ export default {
         },
         {
           title: "CHỦ ĐẦU TƯ",
-          minWidth: 200,
           field: "investor",
           hozAlign: "center",
           vertAlign: "middle",
-          print: false,
-          download: false
+          print: true,
+          download: true
         },
         {
           title: "TỔNG VỐN ĐẦU TƯ",
-          minWidth: 200,
           field: "totalInvestment",
           hozAlign: "center",
           vertAlign: "middle",
-          print: false,
-          download: false
+          print: true,
+          download: true
         },
         {
           title: "TẢI TRỌNG THIẾT KẾ",
-          minWidth: 200,
           field: "designLoad",
           hozAlign: "center",
           vertAlign: "middle",
-          print: false,
-          download: false
+          print: true,
+          download: true
         },
         {
           title: "ĐƠN VỊ THIẾT KẾ",
-          minWidth: 200,
           field: "designer",
           hozAlign: "center",
           vertAlign: "middle",
-          print: false,
-          download: false
+          print: true,
+          download: true
         },
-        {
-          title: "ĐƠN VỊ THI CÔNG",
-          minWidth: 200,
-          field: "builder",
-          hozAlign: "center",
-          vertAlign: "middle",
-          print: false,
-          download: false
-        },
-        {
-          title: "ĐƠN VỊ GIÁM SÁT",
-          minWidth: 200,
-          field: "supervisor",
-          hozAlign: "center",
-          vertAlign: "middle",
-          print: false,
-          download: false
-        },
+        // {
+        //   title: "ĐƠN VỊ THIẾT KẾ",
+        //   minWidth: 200,
+        //   field: "designer",
+        //   hozAlign: "center",
+        //   vertAlign: "middle",
+        //   print: true,
+        //   download: true
+        // },
+        // {
+        //   title: "ĐƠN VỊ THI CÔNG",
+        //   minWidth: 200,
+        //   field: "builder",
+        //   hozAlign: "center",
+        //   vertAlign: "middle",
+        //   print: true,
+        //   download: true
+        // },
+        // {
+        //   title: "ĐƠN VỊ GIÁM SÁT",
+        //   minWidth: 200,
+        //   field: "supervisor",
+        //   hozAlign: "center",
+        //   vertAlign: "middle",
+        //   print: true,
+        //   download: true
+        // },
         // {
         //   title: "ĐƠN VỊ QUẢN LÝ",
         //   minWidth: 200,
         //   field: "manager",
         //   hozAlign: "center",
         //   vertAlign: "middle",
-        //   print: false,
-        //   download: false
+        //   print: true,
+        //   download: true
         // },
         // {
         //   title: "VỊ TRÍ XÂY DỰNG",
@@ -322,17 +333,18 @@ export default {
         //   field: "nationalHighway",
         //   hozAlign: "center",
         //   vertAlign: "middle",
-        //   print: false,
-        //   download: false
+        //   print: true,
+        //   download: true
         // },
         {
           title: "TRẠNG THÁI",
           minWidth: 200,
           field: "status",
+          headerHozAlign: "center",
           hozAlign: "center",
           vertAlign: "middle",
-          print: false,
-          download: false,
+          print: true,
+          download: true,
           formatter(cell) {
             return `<div class="flex items-center lg:justify-center ${
               cell.getData().status === "good" ? "text-theme-9" : "text-theme-6"
@@ -352,18 +364,33 @@ export default {
           minWidth: 200,
           field: "actions",
           responsive: 1,
+          headerHozAlign: "center",
           hozAlign: "center",
           vertAlign: "middle",
-          print: false,
-          download: false,
+          print: true,
+          download: true,
+          cellClick: (e, ceil) => {
+            // console.log(ceil.getRow().getPosition(true));
+            let elementClicked = e.toElement.outerHTML || "";
+            this.dataToUpdate = ceil.getRow().getData();
+            this.selectedRow = ceil.getRow();
+            // console.log(elementClicked);
+            if (elementClicked.match(/trash/gm)) {
+              cash("#delete-confirmation-modal").modal("show");
+            }
+            if (elementClicked.match(/check-square/gm)) {
+              this.$router.push({
+                name: "bridge-add",
+                params: { formData: this.dataToUpdate }
+              });
+            }
+          },
           formatter() {
             return `<div class="flex lg:justify-center items-center">
-              <a class="flex items-center mr-3" href="">
+              <a class="flex items-center mr-3" href="javascript:;">
                 <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Sửa thông tin
               </a>
-              <a class="flex items-center text-theme-6" href="javascript:;"
-                    data-toggle="modal"
-                    data-target="#delete-confirmation-modal">
+              <a class="flex items-center text-theme-6" href="javascript:;">
                 <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Xóa
               </a>
             </div>`;
@@ -491,7 +518,10 @@ export default {
     },
 
     deleteData() {
-      // this.$axios
+      this.$axios.delete("/Bridge/" + this.dataToUpdate.id).then(response => {
+        this.selectedRow.delete();
+        console.log(response);
+      });
     }
   }
 };
