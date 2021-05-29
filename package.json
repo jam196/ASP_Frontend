@@ -49,9 +49,11 @@
     "velocity-animate": "^1.5.2",
     "vue-chartjs": "^3.5.0",
     "vue-feather-icons": "^5.1.0",
+    "vue-location-picker": "^1.0.1",
     "vue-slick-carousel": "^1.0.6",
     "vue-tippy": "^4.5.1",
     "vue2-dropzone": "^3.6.0",
+    "vue2-google-maps": "^0.10.7",
     "vuelidate": "^0.7.5",
     "xlsx": "^0.16.6",
     "zoom-vanilla.js": "^2.0.6"

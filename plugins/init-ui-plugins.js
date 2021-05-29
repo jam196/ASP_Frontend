@@ -17,6 +17,17 @@ import "../libs/modal";
 
 import VueTippy, { TippyComponent } from "vue-tippy";
 
+import * as VueGoogleMaps from "vue2-google-maps";
+Vue.use(VueGoogleMaps, {
+  load: {
+    region: "VI",
+    language: "vi",
+    key: "AIzaSyCjamSBmDrV2d7ZRjln821wu7ZNrdllgDQ",
+    libraries: "places,geometry"
+  }
+  // installComponents: true
+});
+
 Vue.use(VueTippy);
 Vue.component("Tippy", TippyComponent);
 

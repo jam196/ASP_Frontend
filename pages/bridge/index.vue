@@ -337,7 +337,7 @@ export default {
         //   download: true
         // },
         {
-          title: "TRẠNG THÁI",
+          title: "TÌNH TRẠNG",
           minWidth: 200,
           field: "status",
           headerHozAlign: "center",
