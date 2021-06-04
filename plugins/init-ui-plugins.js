@@ -22,7 +22,7 @@ Vue.use(VueGoogleMaps, {
   load: {
     region: "VI",
     language: "vi",
-    key: "AIzaSyCjamSBmDrV2d7ZRjln821wu7ZNrdllgDQ",
+    key: "AIzaSyCDvAdSDDBAaAl8-jXVmqm6J8e8t0Y5mHk",
     libraries: "places,geometry"
   }
   // installComponents: true

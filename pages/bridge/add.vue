@@ -25,10 +25,10 @@
         <!--        </div>-->
         <div class="px-5 mt-10">
           <div class="font-medium text-center text-lg">Thêm cầu</div>
-          <div class="text-gray-600 text-center mt-2">
-            To start off, please enter your username, email address and
-            password.
-          </div>
+          <!--          <div class="text-gray-600 text-center mt-2">-->
+          <!--            To start off, please enter your username, email address and-->
+          <!--            password.-->
+          <!--          </div>-->
         </div>
         <div
           class="px-5 sm:px-20 mt-10 pt-10 border-t border-gray-200 dark:border-dark-5"
@@ -72,12 +72,18 @@
               </div>
             </div>
             <div class="intro-y col-span-12 sm:col-span-6">
-              <div>Chủ đầu tư</div>
-              <input
+              <div class="mb-2">Chủ đầu tư</div>
+              <select
                 v-model="formData.investor"
-                type="text"
-                class="input w-full border mt-2"
-              />
+                class="input w-full border flex-1"
+              >
+                <option
+                  v-for="investor in investors"
+                  :key="'investor_' + investor"
+                  :value="investor"
+                  >{{ investor }}</option
+                >
+              </select>
             </div>
             <div class="intro-y col-span-12 sm:col-span-6">
               <div>Thời gian hoàn thành xây dựng</div>
@@ -182,7 +188,7 @@
                 @click="handleMapClick"
               >
                 <GmapMarker
-                  :position="marker.position"
+                  :position="position"
                   :clickable="true"
                   :draggable="true"
                   @drag="handleMarkerDrag"
@@ -235,21 +241,30 @@ import LinkPlugin from "@ckeditor/ckeditor5-link/src/link";
 import LitePicker from "../../components/LitePicker";
 import TailSelect from "../../components/TailSelect";
 import Toastify from "toastify-js";
+// eslint-disable-next-line no-unused-vars
 import * as VueGoogleMaps from "~/node_modules/vue2-google-maps";
 
 export default {
+  // eslint-disable-next-line vue/no-unused-components
   components: { LitePicker, TailSelect },
-  props: ["test"],
   data() {
     return {
       place: false,
-      marker: { position: { lat: 10, lng: 10 } },
+      position: { lat: 10, lng: 10 },
       center: { lat: 10, lng: 10 },
       markers: [],
       mapOptions: {
         disableDefaultUI: false
       },
       date: "",
+      investors: [
+        "Chánh Nghĩa Group - Công Ty Cổ Phần Xây Dựng Chánh Nghĩa",
+        "Thiết Kế Xây Dựng Nha Trang - Công Ty Cổ Phần Kiến Trúc Xây Dựng ACP",
+        "Xây Dựng Seacons - Công Ty TNHH Đầu Tư Xây Dựng Seacons",
+        "Xây Dựng DNC - Công Ty TNHH Thiết Kế Và Xây Dựng DNC",
+        "Kiến Trúc & Xây Dựng AZ-GROUP",
+        "Thiết Kế Xây Dựng Nhà Đỏ - Công Ty CP Thiết Kế Xây Dựng Thương Mại Trang Trí Nội Thất Nhà Đỏ"
+      ],
       designers: [
         "Chánh Nghĩa Group - Công Ty Cổ Phần Xây Dựng Chánh Nghĩa",
         "Thiết Kế Xây Dựng Nha Trang - Công Ty Cổ Phần Kiến Trúc Xây Dựng ACP",
@@ -304,6 +319,8 @@ export default {
         supervisor: "",
         manager: "",
         location: "",
+        latitude: 10,
+        longitude: 10,
         status: "good"
       },
       classicEditor: ClassicEditor,
@@ -316,13 +333,29 @@ export default {
       editorData: "<p>Content of the editor.</p>"
     };
   },
+  watch: {
+    position: function(val) {
+      this.formData.latitude = val.lat;
+      this.formData.longitude = val.lng;
+    }
+  },
   mounted() {
+    this.formData.investor = this.investors[0];
     this.formData.designer = this.designers[0];
     this.formData.builder = this.builders[0];
     this.formData.supervisor = this.supervisors[0];
     this.formData.manager = this.managers[0];
     if (this.$route.params.formData) {
       this.formData = this.$route.params.formData;
+      this.position = {
+        lat: this.$route.params.formData.latitude,
+        lng: this.$route.params.formData.longitude
+      };
+      this.center = {
+        lat: this.$route.params.formData.latitude,
+        lng: this.$route.params.formData.longitude
+      };
+      // this.panToMarker();
     }
   },
   methods: {
@@ -389,7 +422,7 @@ export default {
     },
     geoLocate() {
       navigator.geolocation.getCurrentPosition(position => {
-        this.marker.position = {
+        this.position = {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
@@ -398,22 +431,28 @@ export default {
       });
     },
     handleMarkerDrag(e) {
-      this.marker.position = { lat: e.latLng.lat(), lng: e.latLng.lng() };
+      this.position = { lat: e.latLng.lat(), lng: e.latLng.lng() };
     },
     panToMarker() {
-      this.$refs.mapRef.panTo(this.marker.position);
+      this.$refs.mapRef.panTo(this.position);
       // this.$refs.mapRef.setZoom(18);
     },
     handleMapClick(e) {
-      this.marker.position = { lat: e.latLng.lat(), lng: e.latLng.lng() };
+      this.position = { lat: e.latLng.lat(), lng: e.latLng.lng() };
+      // eslint-disable-next-line no-undef
       let geocoder = new google.maps.Geocoder();
-      geocoder.geocode({ location: this.marker.position }, response => {
+      geocoder.geocode({ location: this.position }, response => {
         this.formData.location = response[0].formatted_address;
+        this.position.lat = response[0].geometry.location.lat();
+        this.position.lng = response[0].geometry.location.lng();
       });
     },
     setPlace(place) {
       this.formData.location = place.formatted_address;
-      this.marker.position = place.geometry.location;
+      this.position = {
+        lat: place.geometry.location.lat(),
+        lng: place.geometry.location.lng()
+      };
       this.panToMarker();
     }
   }

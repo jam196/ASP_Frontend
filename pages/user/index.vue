@@ -1,40 +1,9 @@
 <template>
   <div>
     <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
-      <h2 class="text-lg font-medium mr-auto">Danh Sách Cầu Đã Thêm</h2>
-      <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-        <nuxt-link to="/bridge/add">
-          <button class="button text-white bg-theme-1 shadow-md mr-2">
-            Thêm cầu
-          </button>
-        </nuxt-link>
-        <div class="dropdown ml-auto sm:ml-0">
-          <button
-            class="dropdown-toggle button px-2 box text-gray-700 dark:text-gray-300"
-          >
-            <span class="w-5 h-5 flex items-center justify-center">
-              <i class="w-4 h-4" data-feather="plus"></i>
-            </span>
-          </button>
-          <div class="dropdown-box w-40">
-            <div class="dropdown-box__content box dark:bg-dark-1 p-2">
-              <a
-                href=""
-                class="flex items-center block p-2 transition duration-300 ease-in-out bg-white dark:bg-dark-1 hover:bg-gray-200 dark:hover:bg-dark-2 rounded-md"
-              >
-                <i data-feather="file-plus" class="w-4 h-4 mr-2"></i> New
-                Category
-              </a>
-              <a
-                href=""
-                class="flex items-center block p-2 transition duration-300 ease-in-out bg-white dark:bg-dark-1 hover:bg-gray-200 dark:hover:bg-dark-2 rounded-md"
-              >
-                <i data-feather="users" class="w-4 h-4 mr-2"></i> New Group
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <h2 class="text-lg font-medium mr-auto">
+        Danh Sách Người Dùng Trong Hệ Thống
+      </h2>
     </div>
     <!-- BEGIN: HTML Table Data -->
     <div class="intro-y box p-5 mt-5">
@@ -216,7 +185,7 @@ export default {
   },
   mounted() {
     this.table = new Tabulator(this.$refs.table, {
-      ajaxURL: "https://localhost:5001/api/bridge",
+      ajaxURL: "https://localhost:5001/api/user",
       ajaxConfig: {
         headers: {
           Authorization: this.$auth.strategy.token.get()
@@ -244,98 +213,15 @@ export default {
 
         // For HTML table
         {
-          title: "TÊN CẦU",
-          minWidth: 200,
+          title: "TÊN ĐĂNG NHẬP",
           responsive: 0,
-          field: "name",
-          vertAlign: "middle",
-          print: true,
-          download: true,
-          formatter(cell) {
-            return `<div>
-              <div class="font-medium whitespace-no-wrap">${
-                cell.getData().name
-              }</div>
-            </div>`;
-          }
-        },
-        // {
-        //   title: "VỊ TRÍ XÂY DỰNG",
-        //   minWidth: 200,
-        //   field: "location",
-        //   hozAlign: "center",
-        //   vertAlign: "middle",
-        //   print: true,
-        //   download: true,
-        //   formatter: "textarea"
-        // },
-        {
-          title: "CHỦ ĐẦU TƯ",
-          field: "investor",
-          hozAlign: "center",
-          vertAlign: "middle",
-          print: true,
-          download: true,
-          formatter: "textarea"
-        },
-        {
-          title: "TỔNG VỐN ĐẦU TƯ (TỶ)",
-          field: "totalInvestment",
-          hozAlign: "center",
+          field: "username",
           vertAlign: "middle",
           print: true,
           download: true
         },
         {
-          title: "TẢI TRỌNG THIẾT KẾ (TẤN)",
-          field: "designLoad",
-          hozAlign: "center",
-          vertAlign: "middle",
-          print: true,
-          download: true
-        },
-        {
-          title: "ĐƠN VỊ THIẾT KẾ",
-          field: "designer",
-          hozAlign: "center",
-          vertAlign: "middle",
-          print: true,
-          download: true,
-          formatter: "textarea"
-        },
-        {
-          title: "ĐƠN VỊ THI CÔNG",
-          minWidth: 200,
-          field: "builder",
-          hozAlign: "center",
-          vertAlign: "middle",
-          visible: false,
-          print: true,
-          download: true
-        },
-        {
-          title: "ĐƠN VỊ GIÁM SÁT",
-          minWidth: 200,
-          field: "supervisor",
-          hozAlign: "center",
-          vertAlign: "middle",
-          visible: false,
-          print: true,
-          download: true
-        },
-        {
-          title: "ĐƠN VỊ QUẢN LÝ",
-          minWidth: 200,
-          field: "manager",
-          hozAlign: "center",
-          vertAlign: "middle",
-          visible: false,
-          print: true,
-          download: true
-        },
-        {
-          title: "TÌNH TRẠNG",
-          minWidth: 200,
+          title: "CHỨC VỤ",
           field: "status",
           headerHozAlign: "center",
           hozAlign: "center",
@@ -344,17 +230,35 @@ export default {
           download: true,
           formatter(cell) {
             return `<div class="flex items-center lg:justify-center ${
-              cell.getData().status === "good" ? "text-theme-9" : "text-theme-6"
+              cell.getData().role === "good" ? "text-theme-6" : "text-theme-9"
             }">
               <i data-feather="check-square" class="w-4 h-4 mr-2"></i> ${
-                cell.getData().status === "good"
-                  ? "Hoạt động tốt"
-                  : cell.getData().status === "warning"
-                  ? "Cần theo dõi"
-                  : "Xuống cấp nghiêm trọng"
+                cell.getData().role === "member"
+                  ? "Tài khoản thường"
+                  : "Quản trị viên"
               }
             </div>`;
           }
+        },
+        {
+          title: "NGÀY TẠO",
+          responsive: 0,
+          field: "createdAt",
+          headerHozAlign: "center",
+          hozAlign: "center",
+          vertAlign: "middle",
+          print: true,
+          download: true
+        },
+        {
+          title: "LẦN CUỐI CẬP NHẬT",
+          responsive: 0,
+          field: "updatedAt",
+          headerHozAlign: "center",
+          hozAlign: "center",
+          vertAlign: "middle",
+          print: true,
+          download: true
         },
         {
           title: "THAO TÁC",

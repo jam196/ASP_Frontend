@@ -196,11 +196,16 @@
           </div>
           <div class="p-2 border-t border-theme-40 dark:border-dark-3">
             <a
-              href
+              href="#"
               class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md"
+              @click="
+                () => {
+                  this.$auth.logout();
+                }
+              "
             >
               <ToggleRightIcon class="w-4 h-4 mr-2" />
-              Logout
+              Đăng xuất
             </a>
           </div>
         </div>

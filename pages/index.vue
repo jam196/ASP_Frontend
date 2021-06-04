@@ -7,12 +7,6 @@
           <h2 class="text-lg font-medium truncate mr-5">
             Xin chào {{ this.$auth.user.username }}
           </h2>
-          <button
-            class="text-white p-3 rounded bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50"
-            @click="logout"
-          >
-            Đăng xuất
-          </button>
           <a href="" class="ml-auto flex text-theme-1 dark:text-theme-10">
             <RefreshCcwIcon class="w-4 h-4 mr-3" />
             Reload Data
@@ -36,7 +30,9 @@
                   </div>
                 </div>
                 <div class="text-3xl font-bold leading-8 mt-6">4.510</div>
-                <div class="text-base text-gray-600 mt-1">Item Sales</div>
+                <div class="text-base text-gray-600 mt-1">
+                  Cầu trong hệ thống
+                </div>
               </div>
             </div>
           </div>
@@ -57,7 +53,9 @@
                   </div>
                 </div>
                 <div class="text-3xl font-bold leading-8 mt-6">3.521</div>
-                <div class="text-base text-gray-600 mt-1">New Orders</div>
+                <div class="text-base text-gray-600 mt-1">
+                  Cầu hoạt động tốt
+                </div>
               </div>
             </div>
           </div>
@@ -78,7 +76,7 @@
                   </div>
                 </div>
                 <div class="text-3xl font-bold leading-8 mt-6">2.145</div>
-                <div class="text-base text-gray-600 mt-1">Total Products</div>
+                <div class="text-base text-gray-600 mt-1">Cầu cần nâng cấp</div>
               </div>
             </div>
           </div>
@@ -99,7 +97,9 @@
                   </div>
                 </div>
                 <div class="text-3xl font-bold leading-8 mt-6">152.000</div>
-                <div class="text-base text-gray-600 mt-1">Unique Visitor</div>
+                <div class="text-base text-gray-600 mt-1">
+                  Người dùng trong hệ thống
+                </div>
               </div>
             </div>
           </div>
@@ -1042,12 +1042,6 @@ export default {
     },
     nextImportantNotes() {
       this.$refs["important-notes"].next();
-    },
-    logout() {
-      console.log("Clicked");
-      // this.$auth.setUser({});
-      // this.$router.push({ path: "login" });
-      this.$auth.logout();
     }
   }
 };
