@@ -2,7 +2,9 @@
   <div>
     <div>
       <div class="flex items-center mt-8">
-        <h2 class="intro-y text-lg font-medium mr-auto">Thêm cầu</h2>
+        <h2 class="intro-y text-lg font-medium mr-auto">
+          {{ !formData.id ? "Thêm cầu" : "Sửa thông tin " + formData.name }}
+        </h2>
       </div>
       <!-- BEGIN: Wizard Layout -->
       <div class="intro-y box py-10 sm:py-20 mt-5">
@@ -24,7 +26,9 @@
         <!--          </button>-->
         <!--        </div>-->
         <div class="px-5 mt-10">
-          <div class="font-medium text-center text-lg">Thêm cầu</div>
+          <div class="font-medium text-center text-lg">
+            {{ !formData.id ? "Thêm cầu" : "Sửa thông tin " + formData.name }}
+          </div>
           <!--          <div class="text-gray-600 text-center mt-2">-->
           <!--            To start off, please enter your username, email address and-->
           <!--            password.-->
@@ -58,6 +62,7 @@
                   v-model="formData.startTime"
                   :classes="'input pr-12 w-full border col-span-4'"
                   :options="{
+                    format: 'YYYY-MM-DD',
                     autoApply: false,
                     showWeekNumbers: true,
                     dropdowns: {
@@ -73,9 +78,13 @@
             </div>
             <div class="intro-y col-span-12 sm:col-span-6">
               <div class="mb-2">Chủ đầu tư</div>
-              <select
+              <TailSelect
                 v-model="formData.investor"
                 class="input w-full border flex-1"
+                :options="{
+                  search: true,
+                  classNames: 'w-full'
+                }"
               >
                 <option
                   v-for="investor in investors"
@@ -83,7 +92,7 @@
                   :value="investor"
                   >{{ investor }}</option
                 >
-              </select>
+              </TailSelect>
             </div>
             <div class="intro-y col-span-12 sm:col-span-6">
               <div>Thời gian hoàn thành xây dựng</div>
@@ -92,6 +101,7 @@
                   v-model="formData.endTime"
                   :classes="'input pr-12 w-full border col-span-4'"
                   :options="{
+                    format: 'YYYY-MM-DD',
                     autoApply: false,
                     showWeekNumbers: true,
                     dropdowns: {
@@ -115,8 +125,12 @@
             </div>
             <div class="intro-y col-span-12 sm:col-span-6">
               <div class="mb-2">Đơn vị thiết kế</div>
-              <select
+              <TailSelect
                 v-model="formData.designer"
+                :options="{
+                  search: true,
+                  classNames: 'w-full'
+                }"
                 class="input w-full border flex-1"
               >
                 <option
@@ -125,13 +139,16 @@
                   :value="designer"
                   >{{ designer }}</option
                 >
-              </select>
+              </TailSelect>
             </div>
             <div class="intro-y col-span-12 sm:col-span-6">
               <div class="mb-2">Đơn vị thi công</div>
-              <select
+              <TailSelect
                 v-model="formData.builder"
-                class="input w-full border flex-1"
+                :options="{
+                  search: true,
+                  classNames: 'w-full'
+                }"
               >
                 <option
                   v-for="builder in builders"
@@ -139,12 +156,16 @@
                   :value="builder"
                   >{{ builder }}</option
                 >
-              </select>
+              </TailSelect>
             </div>
             <div class="intro-y col-span-12 sm:col-span-6">
               <div class="mb-2">Đơn vị tư vấn giám sát</div>
-              <select
+              <TailSelect
                 v-model="formData.supervisor"
+                :options="{
+                  search: true,
+                  classNames: 'w-full'
+                }"
                 class="input w-full border flex-1"
               >
                 <option
@@ -153,12 +174,16 @@
                   :value="supervisor"
                   >{{ supervisor }}</option
                 >
-              </select>
+              </TailSelect>
             </div>
             <div class="intro-y col-span-12 sm:col-span-6">
               <div class="mb-2">Đơn vị quản lý</div>
-              <select
+              <TailSelect
                 v-model="formData.manager"
+                :options="{
+                  search: true,
+                  classNames: 'w-full'
+                }"
                 class="input w-full border flex-1"
               >
                 <option
@@ -167,7 +192,7 @@
                   :value="manager"
                   >{{ manager }}</option
                 >
-              </select>
+              </TailSelect>
             </div>
             <div class="intro-y col-span-12 sm:col-span-6">
               <div>Địa điểm</div>
@@ -203,8 +228,8 @@
                 class="input w-full border flex-1"
               >
                 <option value="good">Hoạt động tốt</option>
-                <option value="bad">Yếu</option>
-                <option value="very_bad">Rất yếu</option>
+                <option value="warning">Cần theo dõi</option>
+                <option value="bad">Hỏng hóc, cần nâng cấp</option>
               </select>
             </div>
             <div
@@ -256,64 +281,163 @@ export default {
       mapOptions: {
         disableDefaultUI: false
       },
-      date: "",
       investors: [
-        "Chánh Nghĩa Group - Công Ty Cổ Phần Xây Dựng Chánh Nghĩa",
-        "Thiết Kế Xây Dựng Nha Trang - Công Ty Cổ Phần Kiến Trúc Xây Dựng ACP",
-        "Xây Dựng Seacons - Công Ty TNHH Đầu Tư Xây Dựng Seacons",
-        "Xây Dựng DNC - Công Ty TNHH Thiết Kế Và Xây Dựng DNC",
-        "Kiến Trúc & Xây Dựng AZ-GROUP",
-        "Thiết Kế Xây Dựng Nhà Đỏ - Công Ty CP Thiết Kế Xây Dựng Thương Mại Trang Trí Nội Thất Nhà Đỏ"
+        "Tổng công ty Hoàng Anh - TNHH MTV",
+        "Công ty Tập đoàn Thăng Long",
+        "Sở Giao thông vận tải Hà Nội",
+        "Tập đoàn Xây Dựng cầu đường",
+        "Tổng CTCP Xuất nhập khẩu và Xây dựng Việt Nam",
+        "Công ty CP Ecoba",
+        "Công ty CP xây dựng Coteccons",
+        "Tập đoàn CBRE",
+        "Công ty tài chính cổ phần Điện lực",
+        "Margaret Yang",
+        "Tổng Công ty Đầu tư phát triển cầu đường UDIC",
+        "Tập đoàn xây dựng Delta",
+        "Tập Đoàn TIMA",
+        "Lotte Finance",
+        "Nhà thầu Fecon",
+        "Công ty TNHH BHNT Prudential Việt Nam",
+        "Benjamin Graham",
+        "Công ty CP Đầu tư Xây dựng Newtecons",
+        "Công ty CP Tập đoàn đầu tư cầu đường",
+        "Công ty CP Xây dựng Phục Hưng Holdings",
+        "Trần Đô Thành",
+        "Cục Quản lý đường bộ Thăng Long",
+        "Nhà thầu Becamex",
+        "Công ty Tập đoàn Xây Dựng Hòa Bình",
+        "Nhà Đỏ Group",
+        "Tổng công ty thăm dò & khai thác cầu đường",
+        "Công ty CP Tập đoàn Hòa Phát",
+        "Tập đoàn Vingroup"
       ],
       designers: [
-        "Chánh Nghĩa Group - Công Ty Cổ Phần Xây Dựng Chánh Nghĩa",
-        "Thiết Kế Xây Dựng Nha Trang - Công Ty Cổ Phần Kiến Trúc Xây Dựng ACP",
-        "Xây Dựng Seacons - Công Ty TNHH Đầu Tư Xây Dựng Seacons",
-        "Xây Dựng DNC - Công Ty TNHH Thiết Kế Và Xây Dựng DNC",
-        "Kiến Trúc & Xây Dựng AZ-GROUP",
-        "Thiết Kế Xây Dựng Nhà Đỏ - Công Ty CP Thiết Kế Xây Dựng Thương Mại Trang Trí Nội Thất Nhà Đỏ"
+        "Xây Dựng Công Trình Hoàng Anh",
+        "Xây Dựng - Công Ty Xây Dựng",
+        "Bộ GTVT",
+        "Xây Dựng tổng hợp Bản Việt",
+        "Xây Lắp công trình COMA",
+        "Xây Dựng Hiệp Phúc",
+        "Xây Dựng Thắng Hòa Phát",
+        "Cát Xây Dựng",
+        "Xây Dựng CECICO579",
+        "Kiến Trúc và xây dựng Hòa Bình",
+        "Conteccons",
+        "Xây dựng tổng hợp Ricons",
+        "Vật liệu - Xây dựng Delta",
+        "Unicons Designs",
+        "Cường Thuận IDICO",
+        "Fecon Designs",
+        "Thi công xây lắp công trình Dân dụng",
+        "Xây Dựng Số 18.3",
+        "Quang Minh",
+        "GoGo",
+        "Kiến Trúc Đăng Phát",
+        "CSAMCO",
+        "Tcty Xây Dựng Cầu Thăng Long",
+        "Bê Tông Becamex",
+        "Xây Dựng Vương Trần",
+        "Thiết Kế Xây Dựng Nhà Đỏ",
+        "Xây Dựng Dân Dụng Nguyễn Nguyên Phát",
+        "Hoàng Long An",
+        "Thương Mại Hoàn Cầu"
       ],
       builders: [
-        "Kiến Trúc Và Xây Dựng VIETSKY - Công Ty CP Kiến Trúc Và Xây Dựng VIETSKY",
-        "Tư Vấn Thiết Kế & Xây Dựng Kiến Việt - Công Ty TNHH Tư Vấn Thiết Kế & Xây Dựng Kiến Việt",
-        "Xây Dựng BIC - Công Ty CP Thiết Kế Và Xây Dựng BIC",
-        "Thiết Kế Xây Dựng Minh Thịnh Phát - Công Ty TNHH Tư Vấn Thiết Kế Xây Dựng Minh Thịnh Phát",
-        "Nhà Thầu Xây Dựng Bình An Lê - Công Ty TNHH Tư Vấn Thiết Kế Xây Dựng Bình An Lê",
-        "MHT Construction - Công Ty TNHH Tư Vấn Xây Dựng Và Thương Mại Minh Hân Thịnh",
-        "Thiết Kế Xây Dựng NAGOPA - Công Ty TNHH Tư Vấn Đầu Tư Xây Dựng NAGOPA",
-        "Hoàng Thiên Design - Công Ty TNHH MTV Hoàng Thiên Design",
-        "Xây Dựng Tân Cường Thịnh NT - Công Ty TNHH Tân Cường Thịnh NT"
+        "Công Ty TNHH Kỹ Thuật Xây Dựng Công Trình Hoàng Anh",
+        "Tổng Công Ty Thăng Long CTCP",
+        "Tổng Công Ty Xây Dựng Công Trình Giao Thông 1",
+        "Công Ty Cổ Phần Đầu Tư Và Phát Triển Bản Việt",
+        "Công Ty Cổ Phần Xây Lắp Và Thương Mại COMA 25",
+        "Công Ty TNHH Xây Dựng Và Thương Mại Dịch Vụ Hiệp Phúc 4",
+        "Công Ty TNHH Thắng Hòa Phát",
+        "Sand Resource Investment Co..,Ltd",
+        "Công Ty Cổ Phần Đầu Tư & Xây Dựng 579",
+        "Công ty CP Tập đoàn xây dựng Hoà Bình",
+        "Công ty CP xây dựng Coteccons",
+        "Công ty CP Đầu tư Xây dựng Ricons",
+        "Công ty TNHH Tập đoàn xây dựng Delta",
+        "Công ty TNHH Đầu tư Xây dựng Unicons",
+        "Công Ty Cổ Phần Đầu Tư Phát Triển Cường Thuận IDICO",
+        "Công ty CP Fecon",
+        "Công ty TNHH Xây dựng tổng hợp Thắng Đạt",
+        "Công Ty Cổ Phần Đầu Tư Và Xây Dựng Số 18.3",
+        "Công Ty TNHH Quang Minh",
+        "Công Ty Cổ Phần Tập Đoàn Liên Doanh Hồng Thái",
+        "Công Ty TNHH Đầu Tư Xây Dựng",
+        "Xí Nghiệp Đầu Tư Xây Dựng Đô Thành",
+        "Công Ty Cổ Phần Cầu 5 Thăng Long",
+        "Công Ty Cổ Phần Đầu Tư Và Xây Dựng Bình Dương ACC",
+        "Công Ty TNHH Xây Dựng Thương Mại Và Dịch Vụ Vương Trần",
+        "Công Ty CP Thiết Kế Xây Dựng Thương Mại Trang Trí Nội Thất Nhà Đỏ",
+        "Công Ty TNHH Nguyễn Nguyên Phát",
+        "Tổng Công Ty Tư Vấn Thiết Kế Giao Thông Vận Tải",
+        "Công Ty TNHH Xây Dựng & Môi Trường Hoàng Long An",
+        "Công Ty TNHH Xây Dựng Dịch Vụ"
       ],
       supervisors: [
-        "Kiến Trúc Và Xây Dựng VIETSKY - Công Ty CP Kiến Trúc Và Xây Dựng VIETSKY",
-        "Tư Vấn Thiết Kế & Xây Dựng Kiến Việt - Công Ty TNHH Tư Vấn Thiết Kế & Xây Dựng Kiến Việt",
-        "Xây Dựng BIC - Công Ty CP Thiết Kế Và Xây Dựng BIC",
-        "Thiết Kế Xây Dựng Minh Thịnh Phát - Công Ty TNHH Tư Vấn Thiết Kế Xây Dựng Minh Thịnh Phát",
-        "Nhà Thầu Xây Dựng Bình An Lê - Công Ty TNHH Tư Vấn Thiết Kế Xây Dựng Bình An Lê",
-        "MHT Construction - Công Ty TNHH Tư Vấn Xây Dựng Và Thương Mại Minh Hân Thịnh",
-        "Thiết Kế Xây Dựng NAGOPA - Công Ty TNHH Tư Vấn Đầu Tư Xây Dựng NAGOPA",
-        "Hoàng Thiên Design - Công Ty TNHH MTV Hoàng Thiên Design",
-        "Xây Dựng Tân Cường Thịnh NT - Công Ty TNHH Tân Cường Thịnh NT"
+        "Ứng dụng Bản đồ Việt",
+        "Đơn Vị Tư Vấn Giám Sát TEXO",
+        "Cục quản lý đường bộ khu vực",
+        "Tư vấn đầu tư và thiết kế xây dựng CDC",
+        "Tư vấn kiểm định xây dựng quốc tế ICCI",
+        "Đơn vị Savills Việt Nam",
+        "Giám sát Hòa Phát",
+        "Monitoring department SRI",
+        "Tư vấn quản lý xây dựng Delta",
+        "Uỷ ban nhân dân tỉnh Hòa Bình",
+        "Conteccons",
+        "Monitoring department Ricons",
+        "The Ascott Limited – Capitaland",
+        "HANCIC USC",
+        "Dịch vụ giám sát cầu đường Newtecons",
+        "Đơn vị Fecon",
+        "Công ty đầu tư phát triển nhà và đô thị HUD",
+        "Cục Quản lý đường bộ",
+        "Ứng dụng Tư vấn & Giám sát Bảo Sơn",
+        "GoGo",
+        "Đơn vị Vinhomes",
+        "Công ty TNHH Artelia Việt Nam",
+        "Công ty tư vấn giám sát xây dựng Nhà Phố Group",
+        "Monitoring Home Red",
+        "Giám sát xây dựng HUD",
+        "Công ty cổ phần tư vấn xây dựng Nagecco"
       ],
       managers: [
-        "Kiến Trúc Và Xây Dựng VIETSKY - Công Ty CP Kiến Trúc Và Xây Dựng VIETSKY",
-        "Tư Vấn Thiết Kế & Xây Dựng Kiến Việt - Công Ty TNHH Tư Vấn Thiết Kế & Xây Dựng Kiến Việt",
-        "Xây Dựng BIC - Công Ty CP Thiết Kế Và Xây Dựng BIC",
-        "Thiết Kế Xây Dựng Minh Thịnh Phát - Công Ty TNHH Tư Vấn Thiết Kế Xây Dựng Minh Thịnh Phát",
-        "Nhà Thầu Xây Dựng Bình An Lê - Công Ty TNHH Tư Vấn Thiết Kế Xây Dựng Bình An Lê",
-        "MHT Construction - Công Ty TNHH Tư Vấn Xây Dựng Và Thương Mại Minh Hân Thịnh",
-        "Thiết Kế Xây Dựng NAGOPA - Công Ty TNHH Tư Vấn Đầu Tư Xây Dựng NAGOPA",
-        "Hoàng Thiên Design - Công Ty TNHH MTV Hoàng Thiên Design",
-        "Xây Dựng Tân Cường Thịnh NT - Công Ty TNHH Tân Cường Thịnh NT"
+        "Đầu tư TSG Việt Nam",
+        "Quản lý Thăng Long",
+        "Cục quản lý đường bộ khu vực",
+        "VietSun",
+        "Tư vấn Quản lý Xây dựng COMA 25",
+        "Quản lý Xây Dựng và Thương Mại Hiệp Phúc",
+        "Công ty phát triển dự án Song Nam",
+        "Công ty quản lý xây dựng cao cấp CBRE",
+        "Quản lý dự án & đầu tư CECICO",
+        "Ủy ban nhân dân tỉnh Hòa Bình",
+        "Công ty dịch vụ tiện ích quốc tế OCS",
+        "Ricons Group",
+        "Quản Lý và Khai thác Pan Services",
+        "Tập đoàn xây dựng Newtecons",
+        "Đơn vị Fencon",
+        "Quản Lý Xây Dựng INPLY",
+        "Cục Quản lý đường bộ",
+        "Quản lý Bảo Sơn",
+        "GoGo Group",
+        "Đơn vị Vinhomes",
+        "Ủy ban nhân dân cấp tỉnh Bình Dương ",
+        "DV An ninh Phương Đông STC",
+        "Nhà đỏ Group",
+        "Quản lý và kiểm tra HUD",
+        "Quản lý XD & MT HLA",
+        "Vingroup"
       ],
       formData: {
         id: false,
-        name: "Tên cầu",
-        startTime: "",
-        endTime: "",
+        name: "Cầu Long Biên",
+        startTime: this.$moment().format("YYYY-MM-DD HH:mm:ss"),
+        endTime: this.$moment().format("YYYY-MM-DD HH:mm:ss"),
         investor: "",
-        totalInvestment: 0,
-        designLoad: 0,
+        totalInvestment: 1,
+        designLoad: 1,
         designer: "",
         builder: "",
         supervisor: "",
@@ -329,8 +453,7 @@ export default {
         toolbar: {
           items: ["bold", "italic", "underline", "link"]
         }
-      },
-      editorData: "<p>Content of the editor.</p>"
+      }
     };
   },
   watch: {

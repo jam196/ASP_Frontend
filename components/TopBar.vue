@@ -3,9 +3,9 @@
   <div class="top-bar">
     <!-- BEGIN: Breadcrumb -->
     <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-      <a href class>Application</a>
+      <a href class>Dashboard</a>
       <ChevronRightIcon class="breadcrumb__icon" />
-      <a href class="breadcrumb--active">Dashboard</a>
+      <a href class="breadcrumb--active">Quản lý cầu đường</a>
     </div>
     <!-- END: Breadcrumb -->
     <!-- BEGIN: Search -->
@@ -151,7 +151,7 @@
       >
         <img
           alt="Admin Dashboard Quản Lý Cầu Đường - TNV"
-          :src="require(`@/assets/images/${$f()[9].photos[0]}`)"
+          :src="this.$auth.user.avatar"
         />
       </div>
       <div class="dropdown-box w-56">
@@ -159,39 +159,48 @@
           class="dropdown-box__content box bg-theme-38 dark:bg-dark-6 text-white"
         >
           <div class="p-4 border-b border-theme-40 dark:border-dark-3">
-            <div class="font-medium">{{ $f()[0].users[0].name }}</div>
+            <div class="font-medium">
+              {{ this.$auth.user.name || this.$auth.user.username }}
+              <!--              {{ this.$auth.user.username || $f()[0].users[0].name }}-->
+            </div>
             <div class="text-xs text-theme-41 dark:text-gray-600">
-              {{ $f()[0].jobs[0] }}
+              {{
+                this.$auth.user.role === "admin"
+                  ? "Quản trị viên"
+                  : "Thành viên hệ thống"
+              }}
+              <!--              {{ this.$auth.user.role === "" $f()[0].jobs[0] }}-->
             </div>
           </div>
           <div class="p-2">
-            <a
+            <nuxt-link
+              to="/profile"
               href
               class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md"
             >
               <UserIcon class="w-4 h-4 mr-2" />
-              Profile
-            </a>
-            <a
-              href
-              class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md"
-            >
-              <EditIcon class="w-4 h-4 mr-2" />
-              Add Account
-            </a>
+              Thông tin tài khoản
+            </nuxt-link>
+            <!--            <a-->
+            <!--              href-->
+            <!--              class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md"-->
+            <!--            >-->
+            <!--              <EditIcon class="w-4 h-4 mr-2" />-->
+            <!--              Add Account-->
+            <!--            </a>-->
             <a
               href
               class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md"
             >
               <LockIcon class="w-4 h-4 mr-2" />
-              Reset Password
+              Đổi mật khẩu
             </a>
             <a
               href
               class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md"
             >
               <HelpCircleIcon class="w-4 h-4 mr-2" />
-              Help
+              Hỗ trợ
             </a>
           </div>
           <div class="p-2 border-t border-theme-40 dark:border-dark-3">

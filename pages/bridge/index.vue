@@ -216,7 +216,7 @@ export default {
   },
   mounted() {
     this.table = new Tabulator(this.$refs.table, {
-      ajaxURL: "https://localhost:5001/api/bridge",
+      ajaxURL: process.env.baseUrl + "/api/bridge",
       ajaxConfig: {
         headers: {
           Authorization: this.$auth.strategy.token.get()
@@ -344,7 +344,11 @@ export default {
           download: true,
           formatter(cell) {
             return `<div class="flex items-center lg:justify-center ${
-              cell.getData().status === "good" ? "text-theme-9" : "text-theme-6"
+              cell.getData().status === "good"
+                ? "text-theme-9"
+                : cell.getData().status === "warning"
+                ? "text-theme-11"
+                : "text-theme-6"
             }">
               <i data-feather="check-square" class="w-4 h-4 mr-2"></i> ${
                 cell.getData().status === "good"

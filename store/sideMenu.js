@@ -6,41 +6,6 @@ const state = () => {
         pageName: "index",
         title: "Dashboard"
       },
-      // {
-      //   icon: "EditIcon",
-      //   pageName: "bridge",
-      //   title: "Quản lý cầu"
-      // },
-      // {
-      //   icon: "EditIcon",
-      //   pageName: "bridge",
-      //   title: "Quản lý người dùng"
-      // },
-      // {
-      //   icon: "BoxIcon",
-      //   pageName: "side-menu-menu-layout",
-      //   title: "Menu Layout",
-      //   subMenu: [
-      //     {
-      //       icon: "",
-      //       pageName: "side-menu-dashboard",
-      //       title: "Side Menu",
-      //       ignore: true
-      //     },
-      //     {
-      //       icon: "",
-      //       pageName: "simple-menu-dashboard",
-      //       title: "Simple Menu",
-      //       ignore: true
-      //     },
-      //     {
-      //       icon: "",
-      //       pageName: "top-menu-dashboard",
-      //       title: "Top Menu",
-      //       ignore: true
-      //     }
-      //   ]
-      // },
       "devider",
       {
         icon: "EditIcon",
@@ -56,8 +21,18 @@ const state = () => {
             icon: "",
             pageName: "user",
             title: "Quản lý người dùng"
+          },
+          {
+            icon: "",
+            pageName: "history",
+            title: "Quản lý hoạt động"
           }
         ]
+      },
+      {
+        icon: "UserIcon",
+        pageName: "profile",
+        title: "Thông tin tài khoản"
       }
     ]
   };

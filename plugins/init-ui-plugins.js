@@ -5,8 +5,7 @@ import dayjs from "dayjs";
 // import "@/global-components";
 // import "@/utils";
 // import "@/libs";
-//
-// // Midone Theme
+
 import "@/assets/sass/app.scss";
 //
 // Vue.config.productionTip = false;

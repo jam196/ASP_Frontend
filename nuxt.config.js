@@ -43,8 +43,14 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
+    "@nuxtjs/moment",
     "@nuxtjs/tailwindcss"
   ],
+
+  moment: {
+    defaultLocale: "vi",
+    locales: ["vi"]
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: ["@nuxtjs/axios", "@nuxtjs/auth-next"],

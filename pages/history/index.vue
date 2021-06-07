@@ -2,7 +2,7 @@
   <div>
     <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
       <h2 class="text-lg font-medium mr-auto">
-        Danh Sách Người Dùng Trong Hệ Thống
+        Danh Sách Hoạt Động Trong Hệ Thống
       </h2>
     </div>
     <!-- BEGIN: HTML Table Data -->
@@ -130,36 +130,6 @@
           class="mt-5 table-report table-report--tabulator"
         ></div>
       </div>
-      <!-- BEGIN: Delete Confirmation Modal -->
-      <div id="delete-confirmation-modal" class="modal">
-        <div class="modal__content">
-          <div class="p-5 text-center">
-            <xCircleIcon class="w-16 h-16 text-theme-6 mx-auto mt-3" />
-            <div class="text-3xl mt-5">Bạn chắc chứ?</div>
-            <div class="text-gray-600 mt-2">
-              Thao tác này sẽ xóa vĩnh viễn dữ liệu và không thể khôi phục.
-            </div>
-          </div>
-          <div class="px-5 pb-8 text-center">
-            <button
-              type="button"
-              data-dismiss="modal"
-              class="button w-32 border text-gray-700 mr-1"
-            >
-              Thế để từ từ
-            </button>
-            <button
-              data-dismiss="modal"
-              type="button"
-              class="button w-24 bg-theme-6 text-white"
-              @click="deleteData"
-            >
-              Chắc chắn!
-            </button>
-          </div>
-        </div>
-      </div>
-      <!-- END: Delete Confirmation Modal -->
     </div>
     <!-- END: HTML Table Data -->
   </div>
@@ -169,7 +139,6 @@
 import xlsx from "xlsx";
 import feather from "feather-icons";
 import Tabulator from "tabulator-tables";
-import Toastify from "toastify-js";
 
 export default {
   data() {
@@ -186,7 +155,7 @@ export default {
   },
   mounted() {
     this.table = new Tabulator(this.$refs.table, {
-      ajaxURL: process.env.baseUrl + "/api/user",
+      ajaxURL: process.env.baseUrl + "/api/history",
       ajaxConfig: {
         headers: {
           Authorization: this.$auth.strategy.token.get()
@@ -214,35 +183,23 @@ export default {
 
         // For HTML table
         {
-          title: "TÊN ĐĂNG NHẬP",
+          title: "IP",
           responsive: 0,
-          field: "username",
+          field: "ipAddress",
           vertAlign: "middle",
           print: true,
           download: true
         },
         {
-          title: "CHỨC VỤ",
-          field: "status",
-          headerHozAlign: "center",
-          hozAlign: "center",
+          title: "MÔ TẢ",
+          responsive: 0,
+          field: "content",
           vertAlign: "middle",
           print: true,
-          download: true,
-          formatter(cell) {
-            return `<div class="flex items-center lg:justify-center ${
-              cell.getData().role === "good" ? "text-theme-6" : "text-theme-9"
-            }">
-              <i data-feather="check-square" class="w-4 h-4 mr-2"></i> ${
-                cell.getData().role === "member"
-                  ? "Tài khoản thường"
-                  : "Quản trị viên"
-              }
-            </div>`;
-          }
+          download: true
         },
         {
-          title: "NGÀY TẠO",
+          title: "NGÀY THỰC HIỆN",
           responsive: 0,
           field: "createdAt",
           headerHozAlign: "center",
@@ -258,60 +215,6 @@ export default {
                 .format("LTS l") +
               "</div>"
             );
-          }
-        },
-        {
-          title: "LẦN CUỐI CẬP NHẬT",
-          responsive: 0,
-          field: "updatedAt",
-          headerHozAlign: "center",
-          hozAlign: "center",
-          vertAlign: "middle",
-          print: true,
-          download: true,
-          formatter: cell => {
-            return (
-              '<div class="flex lg:justify-center items-center">' +
-              this.$moment(cell.getData().updatedAt)
-                .locale("vi")
-                .format("LTS l") +
-              "</div>"
-            );
-          }
-        },
-        {
-          title: "THAO TÁC",
-          minWidth: 200,
-          field: "actions",
-          responsive: 1,
-          headerHozAlign: "center",
-          hozAlign: "center",
-          vertAlign: "middle",
-          print: false,
-          download: false,
-          cellClick: (e, ceil) => {
-            let elementClicked = e.toElement.outerHTML || "";
-            this.dataToUpdate = ceil.getRow().getData();
-            this.selectedRow = ceil.getRow();
-            if (elementClicked.match(/trash/gm)) {
-              cash("#delete-confirmation-modal").modal("show");
-            }
-            if (elementClicked.match(/check-square/gm)) {
-              this.$router.push({
-                name: "profile",
-                params: { formData: this.dataToUpdate }
-              });
-            }
-          },
-          formatter() {
-            return `<div class="flex lg:justify-center items-center">
-              <a class="flex items-center mr-3" href="javascript:;">
-                <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Sửa thông tin
-              </a>
-              <a class="flex items-center text-theme-6" href="javascript:;">
-                <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Xóa
-              </a>
-            </div>`;
           }
         }
       ],
@@ -350,19 +253,19 @@ export default {
 
     // Export
     onExportCsv() {
-      this.table.download("csv", "data.csv");
+      this.table.download("csv", "Histories.csv");
     },
     onExportJson() {
-      this.table.download("json", "data.json");
+      this.table.download("json", "Histories.json");
     },
     onExportXlsx() {
       window.XLSX = xlsx;
-      this.table.download("xlsx", "data.xlsx", {
-        sheetName: "Products"
+      this.table.download("xlsx", "Histories.xlsx", {
+        sheetName: "Histories"
       });
     },
     onExportHtml() {
-      this.table.download("html", "data.html", {
+      this.table.download("html", "Histories.html", {
         style: true
       });
     },
@@ -370,27 +273,6 @@ export default {
     // Print
     onPrint() {
       this.table.print();
-    },
-
-    deleteData() {
-      this.$axios
-        .delete("/User/" + this.dataToUpdate.id)
-        .then(() => {
-          this.selectedRow.delete();
-        })
-        .catch(e => {
-          let responseData = e.response.data;
-          Toastify({
-            text: responseData[Object.keys(responseData)[0]],
-            duration: 3500,
-            newWindow: true,
-            close: true,
-            gravity: "top",
-            position: "center",
-            backgroundColor: "#ffc107",
-            stopOnFocus: true
-          }).showToast();
-        });
     }
   }
 };

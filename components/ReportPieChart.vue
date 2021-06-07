@@ -17,17 +17,30 @@ export default {
     height: {
       type: Number,
       default: 0
+    },
+    percentData: {
+      type: Object,
+      // eslint-disable-next-line vue/require-valid-default-prop
+      default: {
+        good: 63,
+        warning: 25,
+        bad: 12
+      }
     }
   },
   computed: {
     data() {
       return {
-        labels: ["Yellow", "Dark"],
+        labels: ["Cầu hoạt động tốt", "Cầu cần theo dõi", "Cầu cần nâng cấp"],
         datasets: [
           {
-            data: [15, 10, 65],
-            backgroundColor: ["#FF8B26", "#FFC533", "#285FD3"],
-            hoverBackgroundColor: ["#FF8B26", "#FFC533", "#285FD3"],
+            data: [
+              this.percentData.good,
+              this.percentData.warning,
+              this.percentData.bad
+            ],
+            backgroundColor: ["#42ba96", "#ffc107", "#df4759"],
+            hoverBackgroundColor: ["#20c997", "#ffc107", "#df4759"],
             borderWidth: 5,
             borderColor: this.$store.state.main.darkMode ? "#303953" : "#fff"
           }
