@@ -116,7 +116,7 @@
               </div>
             </div>
             <div class="intro-y col-span-12 sm:col-span-6">
-              <div>Tải trọng thiết kế</div>
+              <div>Tải trọng thiết kế (tấn)</div>
               <input
                 v-model="formData.designLoad"
                 type="text"
@@ -432,7 +432,7 @@ export default {
       ],
       formData: {
         id: false,
-        name: "Cầu Long Biên",
+        name: "",
         startTime: this.$moment().format("YYYY-MM-DD HH:mm:ss"),
         endTime: this.$moment().format("YYYY-MM-DD HH:mm:ss"),
         investor: "",

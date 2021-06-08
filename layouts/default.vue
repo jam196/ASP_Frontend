@@ -6,11 +6,7 @@
       <!-- BEGIN: Side Menu -->
       <nav class="side-nav">
         <!-- BEGIN: Logo -->
-        <nuxt-link
-          :to="{ name: 'side-menu-dashboard' }"
-          tag="a"
-          class="intro-x flex items-center pl-5 pt-4"
-        >
+        <nuxt-link to="/" class="intro-x flex items-center pl-5 pt-4">
           <img
             alt="Admin Dashboard Quản Lý Cầu Đường - TNV"
             class="w-6"

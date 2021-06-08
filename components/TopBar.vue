@@ -109,18 +109,17 @@
         <div
           class="notification-content__box dropdown-box__content box dark:bg-dark-6"
         >
-          <div class="notification-content__title">Notifications</div>
+          <div class="notification-content__title">Thông báo</div>
           <div
-            v-for="(faker, fakerKey) in $_.take($f(), 5)"
-            :key="fakerKey"
-            class="cursor-pointer relative flex items-center"
-            :class="{ 'mt-5': fakerKey }"
+            v-for="index in 10"
+            :key="'noti_' + index"
+            class="cursor-pointer relative flex items-center mt-5"
           >
             <div class="w-12 h-12 flex-none image-fit mr-1">
               <img
                 alt="Admin Dashboard Quản Lý Cầu Đường - TNV"
                 class="rounded-full"
-                :src="require(`@/assets/images/${faker.photos[0]}`)"
+                src="https://pdp.edu.vn/wp-content/uploads/2021/01/anh-avatar-cho-con-gai-cuc-dep.jpg"
               />
               <div
                 class="w-3 h-3 bg-theme-9 absolute right-0 bottom-0 rounded-full border-2 border-white"
@@ -129,14 +128,14 @@
             <div class="ml-2 overflow-hidden">
               <div class="flex items-center">
                 <a href="javascript:;" class="font-medium truncate mr-5">
-                  {{ faker.users[0].name }}
+                  ADMIN {{ index }}
                 </a>
                 <div class="text-xs text-gray-500 ml-auto whitespace-no-wrap">
-                  {{ faker.times[0] }}
+                  8/6/2021
                 </div>
               </div>
               <div class="w-full truncate text-gray-600">
-                {{ faker.news[0].short_content }}
+                Release
               </div>
             </div>
           </div>

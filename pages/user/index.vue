@@ -86,14 +86,14 @@
             </button>
             <div class="dropdown-box w-40">
               <div class="dropdown-box__content box dark:bg-dark-1 p-2">
-                <a
-                  href="javascript:;"
-                  class="flex items-center block p-2 transition duration-300 ease-in-out bg-white dark:bg-dark-1 hover:bg-gray-200 dark:hover:bg-dark-2 rounded-md"
-                  @click="onExportCsv"
-                >
-                  <i data-feather="file-text" class="w-4 h-4 mr-2"></i> Xuất
-                  file CSV
-                </a>
+                <!--                <a-->
+                <!--                  href="javascript:;"-->
+                <!--                  class="flex items-center block p-2 transition duration-300 ease-in-out bg-white dark:bg-dark-1 hover:bg-gray-200 dark:hover:bg-dark-2 rounded-md"-->
+                <!--                  @click="onExportCsv"-->
+                <!--                >-->
+                <!--                  <i data-feather="file-text" class="w-4 h-4 mr-2"></i> Xuất-->
+                <!--                  file CSV-->
+                <!--                </a>-->
                 <a
                   href="javascript:;"
                   class="flex items-center block p-2 transition duration-300 ease-in-out bg-white dark:bg-dark-1 hover:bg-gray-200 dark:hover:bg-dark-2 rounded-md"
@@ -231,7 +231,9 @@ export default {
           download: true,
           formatter(cell) {
             return `<div class="flex items-center lg:justify-center ${
-              cell.getData().role === "good" ? "text-theme-6" : "text-theme-9"
+              cell.getData().role === "member"
+                ? "text-theme-9"
+                : "text-theme-10"
             }">
               <i data-feather="check-square" class="w-4 h-4 mr-2"></i> ${
                 cell.getData().role === "member"

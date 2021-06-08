@@ -200,6 +200,15 @@
                     placeholder="Tên hiển thị"
                   />
                 </div>
+                <div class="mt-3">
+                  <label>Email</label>
+                  <input
+                    v-model="formData.email"
+                    type="text"
+                    class="input w-full border bg-white mt-2"
+                    placeholder="Email"
+                  />
+                </div>
                 <div v-if="$auth.user.role === 'admin'" class="mt-3">
                   <label>Loại tài khoản</label>
                   <div class="mt-2">

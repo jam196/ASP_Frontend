@@ -40,40 +40,7 @@
     <div class="intro-y box p-5 mt-5">
       <div class="flex flex-col sm:flex-row sm:items-end xl:items-start">
         <form class="xl:flex sm:mr-auto" @submit.prevent="onFilter">
-          <!--          <div class="sm:flex items-center sm:mr-4">-->
-          <!--            <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2"-->
-          <!--              >Field</label-->
-          <!--            >-->
-          <!--            <select-->
-          <!--              v-model="filter.field"-->
-          <!--              class="input w-full sm:w-32 xxl:w-full mt-2 sm:mt-0 sm:w-auto border"-->
-          <!--            >-->
-          <!--              <option value="name">Name</option>-->
-          <!--              <option value="category">Category</option>-->
-          <!--              <option value="remaining_stock">Remaining Stock</option>-->
-          <!--            </select>-->
-          <!--          </div>-->
-          <!--          <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">-->
-          <!--            <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2"-->
-          <!--              >Type</label-->
-          <!--            >-->
-          <!--            <select-->
-          <!--              v-model="filter.type"-->
-          <!--              class="input w-full mt-2 sm:mt-0 sm:w-auto border"-->
-          <!--            >-->
-          <!--              <option value="like" selected>like</option>-->
-          <!--              <option value="=">=</option>-->
-          <!--              <option value="<">&lt;</option>-->
-          <!--              <option value="<=">&lt;=</option>-->
-          <!--              <option value=">">></option>-->
-          <!--              <option value=">=">>=</option>-->
-          <!--              <option value="!=">!=</option>-->
-          <!--            </select>-->
-          <!--          </div>-->
           <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
-            <!--            <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2"-->
-            <!--              >Value</label-->
-            <!--            >-->
             <input
               v-model="filter.value"
               type="text"
@@ -117,14 +84,14 @@
             </button>
             <div class="dropdown-box w-40">
               <div class="dropdown-box__content box dark:bg-dark-1 p-2">
-                <a
-                  href="javascript:;"
-                  class="flex items-center block p-2 transition duration-300 ease-in-out bg-white dark:bg-dark-1 hover:bg-gray-200 dark:hover:bg-dark-2 rounded-md"
-                  @click="onExportCsv"
-                >
-                  <i data-feather="file-text" class="w-4 h-4 mr-2"></i> Xuất
-                  file CSV
-                </a>
+                <!--                <a-->
+                <!--                  href="javascript:;"-->
+                <!--                  class="flex items-center block p-2 transition duration-300 ease-in-out bg-white dark:bg-dark-1 hover:bg-gray-200 dark:hover:bg-dark-2 rounded-md"-->
+                <!--                  @click="onExportCsv"-->
+                <!--                >-->
+                <!--                  <i data-feather="file-text" class="w-4 h-4 mr-2"></i> Xuất-->
+                <!--                  file CSV-->
+                <!--                </a>-->
                 <a
                   href="javascript:;"
                   class="flex items-center block p-2 transition duration-300 ease-in-out bg-white dark:bg-dark-1 hover:bg-gray-200 dark:hover:bg-dark-2 rounded-md"

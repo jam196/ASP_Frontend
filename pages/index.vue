@@ -306,76 +306,87 @@
               >
                 <div class="p-5">
                   <div class="text-base font-medium truncate">
-                    Lorem Ipsum is simply dummy text
+                    Cây cầu bắc qua suối Bến Lội đã xuống cấp nghiêm trọng.
                   </div>
-                  <div class="text-gray-500 mt-1">20 Hours ago</div>
+                  <div class="text-gray-500 mt-1">1 ngày trước</div>
                   <div class="text-gray-600 text-justify mt-1">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s.
+                    Cầu dân sinh bắc qua suối Bến Lội nối thôn Tú Phương và Tú
+                    Nghĩa, xã Bình Tú, huyện Thăng Bình, dài khoảng 42m, rộng
+                    1,2m. Trải qua thời gian dài sử dụng, đến nay các mảng bê
+                    tông trên mặt cầu bị nứt, hư hỏng dẫn đến xuống cấp nghiêm
+                    trọng gây khó khăn cho việc đi lại hằng ngày của người dân,
+                    nhất là vào mưa lũ. Ngoài ra, cầu không có hệ thống lan can
+                    nên tiềm ẩn nguy cơ xảy ra tai nạn cho người và phương tiện
+                    qua lại.
                   </div>
                   <div class="font-medium flex mt-5">
                     <button
                       type="button"
                       class="button button--sm bg-gray-200 dark:bg-dark-5 text-gray-600 dark:text-gray-300"
                     >
-                      View Notes
+                      Xem chi tiết
                     </button>
                     <button
                       type="button"
                       class="button button--sm border border-gray-300 dark:border-dark-5 text-gray-600 ml-auto"
                     >
-                      Dismiss
+                      Đã xử lý
                     </button>
                   </div>
                 </div>
                 <div class="p-5">
                   <div class="font-medium truncate">
-                    Lorem Ipsum is simply dummy text
+                    Cầu tiền tỷ xây xong bỏ không.
                   </div>
-                  <div class="text-gray-500 mt-1">20 Hours ago</div>
+                  <div class="text-gray-500 mt-1">20 giờ trước</div>
                   <div class="text-gray-600 text-justify mt-1">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s.
+                    Cầu Bà Vường nối 2 xã Mai Phụ và Hộ Độ thuộc huyện Lộc Hà,
+                    tỉnh Hà Tĩnh được đầu tư xây dựng từ năm 2015, với kinh phí
+                    trên 11 tỷ đồng, thế nhưng đến nay cầu vẫn chưa thể đưa vào
+                    sử dụng vì không có đường dẫn. Để lưu thông qua con sông
+                    này, suốt hơn 5 năm qua người dân 2 xã nói trên phải đi vòng
+                    vèo hàng km rất bất tiện.
                   </div>
                   <div class="font-medium flex mt-5">
                     <button
                       type="button"
                       class="button button--sm bg-gray-200 dark:bg-dark-5 text-gray-600 dark:text-gray-300"
                     >
-                      View Notes
+                      Xem chi tiết
                     </button>
                     <button
                       type="button"
                       class="button button--sm border border-gray-300 dark:border-dark-5 text-gray-600 ml-auto"
                     >
-                      Dismiss
+                      Đã xử lý
                     </button>
                   </div>
                 </div>
                 <div class="p-5">
                   <div class="font-medium truncate">
-                    Lorem Ipsum is simply dummy text
+                    Khánh Hòa: Nhiều cầu dân sinh tại huyện Diên Khánh bị xuống
+                    cấp.
                   </div>
-                  <div class="text-gray-500 mt-1">20 Hours ago</div>
+                  <div class="text-gray-500 mt-1">2 ngày trước</div>
                   <div class="text-gray-600 text-justify mt-1">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s.
+                    Thống kê của Phòng Quản lý đô thị huyện Diên Khánh, toàn
+                    huyện có 41 cầu trên đường đô thị, đường huyện và đường xã
+                    có chiều dài nhịp hơn 6m. Trong đó, có 5 cầu yếu, hư hỏng
+                    nặng; 10 cầu có khổ cầu nhỏ hơn đường. Phần lớn các cầu này
+                    đều có tuổi thọ từ 15 đến 30 năm.
                   </div>
                   <div class="font-medium flex mt-5">
                     <button
                       type="button"
                       class="button button--sm bg-gray-200 dark:bg-dark-5 text-gray-600 dark:text-gray-300"
                     >
-                      View Notes
+                      Xem chi tiết
                     </button>
                     <button
                       type="button"
                       class="button button--sm border border-gray-300 dark:border-dark-5 text-gray-600 ml-auto"
                     >
-                      Dismiss
+                      Đã xử lý
                     </button>
                   </div>
                 </div>
@@ -403,17 +414,17 @@
               <div class="p-5">
                 <div class="flex">
                   <ChevronLeftIcon class="w-5 h-5 text-gray-600" />
-                  <div class="font-medium mx-auto">April</div>
+                  <div class="font-medium mx-auto">Tháng 12</div>
                   <ChevronRightIcon class="w-5 h-5 text-gray-600" />
                 </div>
                 <div class="grid grid-cols-7 gap-4 mt-5 text-center">
-                  <div class="font-medium">Su</div>
-                  <div class="font-medium">Mo</div>
-                  <div class="font-medium">Tu</div>
-                  <div class="font-medium">We</div>
-                  <div class="font-medium">Th</div>
-                  <div class="font-medium">Fr</div>
-                  <div class="font-medium">Sa</div>
+                  <div class="font-medium">CN</div>
+                  <div class="font-medium">Thứ 2</div>
+                  <div class="font-medium">Thứ 3</div>
+                  <div class="font-medium">Thứ 4</div>
+                  <div class="font-medium">Thứ 5</div>
+                  <div class="font-medium">Thứ 6</div>
+                  <div class="font-medium">Thứ 7</div>
                   <div class="py-1 rounded relative text-gray-600">29</div>
                   <div class="py-1 rounded relative text-gray-600">30</div>
                   <div class="py-1 rounded relative text-gray-600">31</div>
@@ -477,29 +488,34 @@
               <div class="border-t border-gray-200 p-5">
                 <div class="flex items-center">
                   <div class="w-2 h-2 bg-theme-11 rounded-full mr-3"></div>
-                  <span class="truncate">UI/UX Workshop</span>
+                  <span class="truncate"
+                    >Đánh giá thiệt hại các cầu sau mùa lũ</span
+                  >
                   <div
                     class="h-px flex-1 border border-r border-dashed border-gray-300 mx-3 xl:hidden"
                   ></div>
-                  <span class="font-medium xl:ml-auto">23th</span>
+                  <span class="font-medium xl:ml-auto">23/11</span>
                 </div>
                 <div class="flex items-center mt-4">
                   <div
                     class="w-2 h-2 bg-theme-1 dark:bg-theme-10 rounded-full mr-3"
                   ></div>
-                  <span class="truncate">VueJs Frontend Development</span>
+                  <span class="truncate"
+                    >Lên kế hoạch tu bổ và sửa sang các cầu bị xuống cấp
+                    nặng</span
+                  >
                   <div
                     class="h-px flex-1 border border-r border-dashed border-gray-300 mx-3 xl:hidden"
                   ></div>
-                  <span class="font-medium xl:ml-auto">10th</span>
+                  <span class="font-medium xl:ml-auto">6/12</span>
                 </div>
                 <div class="flex items-center mt-4">
                   <div class="w-2 h-2 bg-theme-12 rounded-full mr-3"></div>
-                  <span class="truncate">Laravel Rest API</span>
+                  <span class="truncate">Giải ngân kinh phí</span>
                   <div
                     class="h-px flex-1 border border-r border-dashed border-gray-300 mx-3 xl:hidden"
                   ></div>
-                  <span class="font-medium xl:ml-auto">31th</span>
+                  <span class="font-medium xl:ml-auto">20/12</span>
                 </div>
               </div>
             </div>
@@ -534,9 +550,14 @@ export default {
     let siteData = await $axios.get("/statistic");
     siteData = siteData.data.data;
     let percentData = {
-      good: (siteData.bridgeGoodCount / siteData.bridgeCount) * 100,
-      warning: (siteData.bridgeWarningCount / siteData.bridgeCount) * 100,
-      bad: (siteData.bridgeBadCount / siteData.bridgeCount) * 100
+      good: ((siteData.bridgeGoodCount / siteData.bridgeCount) * 100).toFixed(
+        2
+      ),
+      warning: (
+        (siteData.bridgeWarningCount / siteData.bridgeCount) *
+        100
+      ).toFixed(2),
+      bad: ((siteData.bridgeBadCount / siteData.bridgeCount) * 100).toFixed(2)
     };
     return { siteData, percentData };
   },
@@ -565,8 +586,18 @@ export default {
     },
     randomAvatar() {
       let list = [
-        "https://vnn-imgs-a1.vgcloud.vn/znews-photo.zadn.vn/Uploaded/izhqv/2021_05_27/98063209_246464859972800_5843071885427867648_n.jpg",
-        "http://img.webtintuc.com/2019/11/hoai-linh-avatar.jpg"
+        "https://cdnb.artstation.com/p/assets/images/images/035/619/491/large/mingming-s01nunp4ew1nwdzprg5hzenurwqya0taszbowwj1nmreqk1fbdl5vvniyxfivkrwbhpntdrbpt0.jpg?1615438844",
+        "https://cdna.artstation.com/p/assets/images/images/034/796/486/large/daniel-kho-lux-wip13.jpg?1613253409",
+        "https://cdnb.artstation.com/p/assets/images/images/034/768/157/large/daniel-kho-2021-02-12-11h42-05.jpg?1613159231",
+        "https://cdna.artstation.com/p/assets/images/images/038/240/520/large/alexandra-fomina-prosecutor.jpg?1622561562",
+        "https://cdnb.artstation.com/p/assets/images/images/037/997/687/large/felipe-chaves-shun-beauty.jpg?1621893448",
+        "https://cdna.artstation.com/p/assets/images/images/038/202/892/large/ling-yj1.jpg?1622471657",
+        "https://cdna.artstation.com/p/assets/images/images/037/262/844/large/chant-ho-lin-v2.jpg?1619928029",
+        "https://cdna.artstation.com/p/assets/images/images/010/631/778/4k/wangjie-li-200.jpg?1525408990",
+        "https://cdna.artstation.com/p/assets/images/images/010/442/832/large/hyungjin-yang-untitled-2.jpg?1524474600",
+        "https://cdna.artstation.com/p/assets/images/images/006/213/096/large/r-o-iaki-etc-0016-1.jpg?1496844191",
+        "https://cdna.artstation.com/p/assets/images/images/022/587/664/4k/qi-sheng-luo-xiaohongclose.jpg?1575992261",
+        "https://cdna.artstation.com/p/assets/images/images/018/776/422/large/coax-22.jpg?1560694257"
       ];
       return list[Math.floor(Math.random() * list.length)];
     },
